@@ -1,0 +1,60 @@
+﻿@using System.Web.Mvc.Html
+@using FaraMedia.Data.Schemas.Layout.Sections
+@using FaraMedia.Data.Schemas.Configuration
+@using FaraMedia.Web.Framework.Mvc.Extensions
+@using FaraMedia.Web.Framework.Mvc.UI
+@using FaraMedia.Web.Framework.Routing
+@using FaraMedia.Web.Framework.UI
+@model FaraMedia.FrontEnd.Administration.Models.Configuration.EditableMembershipSettingsModel
+@{
+    Layout = "~/Views/Shared/Masters/_SettingsSectionLayout.cshtml";
+    Html.AddTitleParts(Html.T(SettingsSectionConstants.SecuritySettingsController.Save.Metadata.Title));
+    Html.AddBreadcrumbParts(Html.LocalizedRouteLink(SettingsSectionConstants.SecuritySettingsController.Save.Metadata.Title, SettingsSectionConstants.SecuritySettingsController.Save.RouteName));
+}
+<section>
+    <div class="page-header">
+        <h1>
+            @Html.T(SettingsSectionConstants.SecuritySettingsController.Save.Metadata.Title) 
+            <small>(@Html.LocalizedBackToLink(SettingsSectionConstants.Metadata.Title, SettingsSectionConstants.RouteName, null))</small>
+        </h1>
+    </div>
+    @Html.Custom().ValidationSummary(true)
+    @using (Html.BeginRouteForm(SettingsSectionConstants.SecuritySettingsController.Save.RouteName)) {
+        <div class="row">
+            <div class="span4">
+                <p>@Html.T(SettingsSectionConstants.SecuritySettingsController.Save.Metadata.Description)</p>
+            </div>
+            <div class="span12">
+                <fieldset>
+                    <legend>
+                        @Html.T(SettingsSectionConstants.SecuritySettingsController.Save.Metadata.Title)
+                    </legend>
+                    @Html.Custom().CheckBoxFor(emsm => emsm.UserNamesEnabled)
+                    @Html.Custom().CheckBoxFor(emsm => emsm.CheckUserNameAvailabilityEnabled)
+                    @Html.Custom().CheckBoxFor(emsm => emsm.AllowUsersToChangeUserNames)
+                    @Html.Custom().CheckBoxFor(emsm => emsm.AllowUserToUploadAvatar)
+                    @Html.Custom().CheckBoxFor(emsm => emsm.DefaultAvatarEnabled)
+                    @Html.Custom().CheckBoxFor(emsm => emsm.ShowUserJoinDate)
+                    @Html.Custom().CheckBoxFor(emsm => emsm.AllowViewingProfiles)
+                    @Html.Custom().CheckBoxFor(emsm => emsm.NotifyNewUserRegistration)
+                    @Html.Custom().CheckBoxFor(emsm => emsm.GenderEnabled)
+                    @Html.Custom().CheckBoxFor(emsm => emsm.DateOfBirthEnabled)
+                    @Html.Custom().CheckBoxFor(emsm => emsm.CountryEnabled)
+                    @Html.Custom().CheckBoxFor(emsm => emsm.CityEnabled)
+                    @Html.Custom().CheckBoxFor(emsm => emsm.ContentManagementletterEnabled)
+                    @Html.Custom().CheckBoxFor(emsm => emsm.HideNewsletterBlock)
+                    @Html.Custom().TextBoxFor(emsm => emsm.PasswordMinLength, new {
+                        @class = "mini left"
+                    })
+                    @Html.Custom().TextBoxFor(emsm => emsm.OnlineUserMinutes, new {
+                        @class = "mini left"
+                    })
+                    @Html.Custom().DropDownListFor(emsm => emsm.UserRegistrationType, Model.AvailableUserRegistrationTypes, Html.T(MembershipSettingsConstants.Fields.UserRegistrationType.Hints))
+                    @Html.Custom().DropDownListFor(emsm => emsm.UserNameFormat, Model.AvailableUserNameFormats, Html.T(MembershipSettingsConstants.Fields.UserNameFormat.Hints))
+                    @Html.Custom().DropDownListFor(emsm => emsm.HashedPasswordFormat, Model.AvailableHashedPasswordFormats, Html.T(MembershipSettingsConstants.Fields.HashedPasswordFormat.Hints))
+                </fieldset>
+            </div>
+        </div>
+                @Html.Partial("_SaveActions")
+    }
+</section>

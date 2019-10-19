@@ -1,0 +1,52 @@
+﻿@model SearchModel
+@{
+    Layout = "~/Views/Shared/_MobileRoot.cshtml";
+
+    //title
+    Html.AddTitleParts(T("PageTitle.Search").Text);
+}
+@using Fara.Core;
+@using Fara.Core.Infrastructure;
+@using Fara.Web;
+@using Fara.Web.Framework;
+@using Fara.Web.Framework.UI;
+@using Fara.Web.Models.Catalog;
+@using Fara.Web.Extensions;
+<div class="search-panel">
+    @using (Html.BeginRouteForm("ProductSearch", FormMethod.Get))
+    {
+        <div class="search-results">
+            @if (!string.IsNullOrEmpty(Model.Warning))
+            {
+                <span class="warning">
+                    @Model.Warning
+                </span>
+            }
+            @if (Model.NoResults)
+            {
+                <span class="result">
+                    @T("Search.NoResultsText")
+                </span>
+            }
+            @*product list*@
+            @if (Model.Products.Count > 0)
+            {
+                <div class="product-list">
+                    <ul data-role="listview" data-inset="true" data-filter="false" data-theme="c">
+                        @foreach (var product in Model.Products)
+                        {
+                            <li>
+                                @Html.Partial("_ProductBox", product)
+                            </li>
+                        }
+                    </ul>
+                </div>
+            }
+            <div class="clear">
+            </div>
+            <div class="pager">
+                @Html.Pager(Model.PagingFilteringContext).QueryParam("pagenumber")
+            </div>
+        </div>
+    }
+</div>

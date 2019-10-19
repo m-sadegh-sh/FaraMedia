@@ -1,0 +1,15 @@
+﻿@using Fara.Core
+@using Fara.Core.Infrastructure
+@using Fara.Web.Framework;
+@{
+    var supportRtl = EngineContext.Current.Resolve<IWorkContext>().WorkingLanguage.Rtl;
+}
+@if (supportRtl)
+{
+    //this theme supports RTL
+    <link href="@Html.ResolveUrl("~/Themes/DarkOrange/Content/styles.rtl.css")" rel="stylesheet" type="text/css" />
+}
+else
+{
+    <link href="@Html.ResolveUrl("~/Themes/DarkOrange/Content/styles.css")" rel="stylesheet" type="text/css" />
+}

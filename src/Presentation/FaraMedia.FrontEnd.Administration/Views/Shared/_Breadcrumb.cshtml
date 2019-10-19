@@ -1,0 +1,6 @@
+﻿@using FaraMedia.Web.Framework.Routing
+@using FaraMedia.Web.Framework.UI
+<ul class="breadcrumb">
+    @{ Html.AddBreadcrumbParts(Html.RootLink()); }
+    @Html.FaraBreadcrumb()
+</ul>

@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CCD7F2C9-6A2C-4CF0-8E89-076B8FC0F144}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FaraMedia.Data</RootNamespace>
+    <AssemblyName>FaraMedia.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Knowns\Billing\OrderStatusNames.fixed.cs" />
+    <Compile Include="Knowns\Systematic\ActivityTypeNames.fixed.cs" />
+    <Compile Include="Knowns\Security\BlockReasonNames.fixed.cs" />
+    <Compile Include="Knowns\FileManagement\DownloadAttributeNames.fixed.cs" />
+    <Compile Include="Knowns\Misc\TicketStatusNames.fixed.cs" />
+    <Compile Include="Knowns\Misc\TicketDepartmentNames.fixed.cs" />
+    <Compile Include="Knowns\Misc\ToDoStatusNames.fixed.cs" />
+    <Compile Include="Knowns\FileManagement\PictureAttributeNames.fixed.cs" />
+    <Compile Include="Knowns\Security\PermissionRecordNames.fixed.cs" />
+    <Compile Include="Knowns\Security\RoleNames.fixed.cs" />
+    <Compile Include="Knowns\Security\UserAttributeNames.fixed.cs" />
+    <Compile Include="Knowns\Security\UserNames.fixed.cs" />
+    <Compile Include="Knowns\Systematic\LanguageNames.fixed.cs" />
+    <Compile Include="Knowns\Systematic\EmailAccountNames.fixed.cs" />
+    <Compile Include="Knowns\Systematic\MessageTemplateNames.fixed.cs" />
+    <Compile Include="Knowns\Systematic\ScheduleTasksNames.fixed.cs" />
+    <Compile Include="Mapping\Security\BlockReasonMap.fixed.cs" />
+    <Compile Include="Mapping\AttributeMapBase.fixed.cs" />
+    <Compile Include="NHibernating\CustomTypes\CsvFormattedUserType.fixed.cs" />
+    <Compile Include="Schemas\ConstantKeyHelpers.fixed`.cs" />
+    <Compile Include="Schemas\ConstantsBase.fixed`.cs" />
+    <Compile Include="Knowns\ParameterNamesExtensions.fixed.cs" />
+    <Compile Include="Mapping\Billing\TransactionRequestMap.fixed.cs" />
+    <Compile Include="Mapping\Billing\OrderStatusMap.fixed.cs" />
+    <Compile Include="Mapping\OwnableMapBase.cs" />
+    <Compile Include="Mapping\MapBase.cs" />
+    <Compile Include="Mapping\Extensions\KeyMapperExtensions.cs" />
+    <Compile Include="Mapping\Systematic\LanguageMap.fixed.cs" />
+    <Compile Include="Mapping\UIElementMapBase.cs" />
+    <Compile Include="Mapping\Components\HistoryComponentMap.fixed.cs" />
+    <Compile Include="Mapping\ContentManagement\PollChoiceMap.fixed.cs" />
+    <Compile Include="Mapping\Misc\ToDoStatusMap.fixed.cs" />
+    <Compile Include="Mapping\Misc\TicketDepartmentMap.fixed.cs" />
+    <Compile Include="Mapping\Misc\TicketStatusMap.fixed.cs" />
+    <Compile Include="Mapping\Security\FriendRequestMap.fixed.cs" />
+    <Compile Include="Mapping\Systematic\ResourceKeyMap.fixed.cs" />
+    <Compile Include="NHibernating\ConfigurationFileCache.fixed.cs" />
+    <Compile Include="NHibernating\ConfirmDatabaseMatchesMappings.fixed.cs" />
+    <Compile Include="NHibernating\Conventions\ConventionNames.fixed.cs" />
+    <Compile Include="NHibernating\Conventions\IdentityBuilder.fixed.cs" />
+    <Compile Include="NHibernating\Conventions\ManyToManyHelpers.fixed.cs" />
+    <Compile Include="NHibernating\Conventions\ModelMapperConventionsOverrides.fixed.cs" />
+    <Compile Include="NHibernating\NHibernateConfigurer.fixed.cs" />
+    <Compile Include="ActiveSessionManager.fixed.cs" />
+    <Compile Include="DependencyRegistrar.fixed.cs" />
+    <Compile Include="Knowns\KnownActionNames.fixed.cs" />
+    <Compile Include="Knowns\KnownConstraints.fixed.cs" />
+    <Compile Include="Knowns\KnownParameterNames.fixed.cs" />
+    <Compile Include="Mapping\Fundamentals\AlbumMap.fixed.cs" />
+    <Compile Include="Mapping\Fundamentals\ArtistMap.fixed.cs" />
+    <Compile Include="Mapping\Fundamentals\PhotoAlbumMap.fixed.cs" />
+    <Compile Include="Mapping\Fundamentals\PhotoMap.fixed.cs" />
+    <Compile Include="Mapping\Billing\TransactionResponseMap.fixed.cs" />
+    <Compile Include="Mapping\ContentManagement\BlogMap.fixed.cs" />
+    <Compile Include="Mapping\ContentManagement\PostMap.fixed.cs" />
+    <Compile Include="Mapping\ContentManagement\TagMap.fixed.cs" />
+    <Compile Include="Mapping\Shared\CommentMap.fixed.cs" />
+    <Compile Include="Mapping\Shared\EntityAttributeMap.fixed.cs" />
+    <Compile Include="Mapping\Shared\LikeMap.fixed.cs" />
+    <Compile Include="Mapping\Shared\ShareMap.fixed.cs" />
+    <Compile Include="Mapping\UserContentMapBase.cs" />
+    <Compile Include="Mapping\Components\MetadataComponentMap.fixed.cs" />
+    <Compile Include="Mapping\Configuration\SettingMap.fixed.cs" />
+    <Compile Include="Mapping\EntityMapBase.cs" />
+    <Compile Include="Mapping\Extensions\MappingExtensions.cs" />
+    <Compile Include="Mapping\Fundamentals\GenreMap.fixed.cs" />
+    <Compile Include="Mapping\Systematic\ResourceValueMap.fixed.cs" />
+    <Compile Include="Mapping\Systematic\ActivityMap.fixed.cs" />
+    <Compile Include="Mapping\Systematic\ActivityTypeMap.fixed.cs" />
+    <Compile Include="Mapping\Systematic\LogMap.fixed.cs" />
+    <Compile Include="Mapping\FileManagement\DownloadMap.fixed.cs" />
+    <Compile Include="Mapping\FileManagement\PictureMap.fixed.cs" />
+    <Compile Include="Mapping\Security\RoleMap.fixed.cs" />
+    <Compile Include="Mapping\Security\UserMap.fixed.cs" />
+    <Compile Include="Mapping\Systematic\EmailAccountMap.fixed.cs" />
+    <Compile Include="Mapping\Systematic\MessageTemplateMap.fixed.cs" />
+    <Compile Include="Mapping\Systematic\NewsletterSubscriptionMap.fixed.cs" />
+    <Compile Include="Mapping\Systematic\QueuedEmailMap.fixed.cs" />
+    <Compile Include="Mapping\ContentManagement\CategoryMap.fixed.cs" />
+    <Compile Include="Mapping\ContentManagement\NewsMap.fixed.cs" />
+    <Compile Include="Mapping\Billing\OrderLineMap.fixed.cs" />
+    <Compile Include="Mapping\Billing\OrderMap.fixed.cs" />
+    <Compile Include="Mapping\Billing\OrderNoteMap.fixed.cs" />
+    <Compile Include="Mapping\ContentManagement\GroupMap.fixed.cs" />
+    <Compile Include="Mapping\ContentManagement\PageMap.fixed.cs" />
+    <Compile Include="Mapping\ContentManagement\PollChoiceItemMap.fixed.cs" />
+    <Compile Include="Mapping\ContentManagement\PollMap.fixed.cs" />
+    <Compile Include="Mapping\ContentManagement\PollVotingRecordMap.fixed.cs" />
+    <Compile Include="Mapping\Fundamentals\PublisherMap.fixed.cs" />
+    <Compile Include="Mapping\Security\BannedIpMap.fixed.cs" />
+    <Compile Include="Mapping\Security\PermissionRecordMap.fixed.cs" />
+    <Compile Include="Mapping\Misc\RedirectorMap.fixed.cs" />
+    <Compile Include="Mapping\Systematic\ScheduleTaskMap.fixed.cs" />
+    <Compile Include="Mapping\Misc\TicketMap.fixed.cs" />
+    <Compile Include="Mapping\Misc\TicketResponseMap.fixed.cs" />
+    <Compile Include="Mapping\Fundamentals\TrackMap.fixed.cs" />
+    <Compile Include="Mapping\Misc\ToDoMap.fixed.cs" />
+    <Compile Include="Schemas\Billing\TransactionRequestConstants.fixed.cs" />
+    <Compile Include="Schemas\Billing\OrderStatusConstants.fixed.cs" />
+    <Compile Include="Schemas\Misc\TicketDepartmentConstants.fixed.cs" />
+    <Compile Include="Schemas\OwnableConstantsBase.fixed.cs" />
+    <Compile Include="Schemas\EntityConstantsBase.fixed.cs" />
+    <Compile Include="Schemas\Misc\ToDoStatusConstants.fixed.cs" />
+    <Compile Include="Schemas\Misc\TicketStatusConstants.fixed.cs" />
+    <Compile Include="Schemas\Security\BlockReasonConstants.fixed.cs" />
+    <Compile Include="Schemas\AttributeConstantsBase.fixed.cs" />
+    <Compile Include="Schemas\Systematic\LanguageConstants.fixed.cs" />
+    <Compile Include="Schemas\UIElementConstantsBase.fixed.cs" />
+    <Compile Include="Schemas\Components\HistoryComponentConstants.fixed.cs" />
+    <Compile Include="Schemas\ConstantKeyHelpers.fixed.cs" />
+    <Compile Include="Schemas\Configuration\FileManagementSettingsConstants.fixed.cs" />
+    <Compile Include="Schemas\ConstantsBase.fixed.cs" />
+    <Compile Include="Schemas\ContentManagement\PollChoiceItemConstants.fixed.cs" />
+    <Compile Include="Schemas\Fundamentals\ArtistConstants.fixed.cs" />
+    <Compile Include="Schemas\Fundamentals\PhotoConstants.fixed.cs" />
+    <Compile Include="Schemas\Fundamentals\PhotoAlbumConstants.fixed.cs" />
+    <Compile Include="Schemas\Billing\TransactionResponseConstants.fixed.cs" />
+    <Compile Include="Schemas\ContentManagement\BlogConstants.fixed.cs" />
+    <Compile Include="Schemas\Shared\LikeConstants.fixed.cs" />
+    <Compile Include="Schemas\Shared\ShareConstants.fixed.cs" />
+    <Compile Include="Schemas\Systematic\ResourceValueConstants.fixed.cs" />
+    <Compile Include="Schemas\Security\FriendRequestConstants.fixed.cs" />
+    <Compile Include="Schemas\Misc\ToDoConstants.fixed.cs" />
+    <Compile Include="Schemas\Misc\TicketResponseConstants.fixed.cs" />
+    <Compile Include="Schemas\Misc\TicketConstants.fixed.cs" />
+    <Compile Include="Schemas\Billing\OrderNoteConstants.fixed.cs" />
+    <Compile Include="Schemas\ContentManagement\GroupConstants.fixed.cs" />
+    <Compile Include="Schemas\ContentManagement\PageConstants.fixed.cs" />
+    <Compile Include="Schemas\ContentManagement\PollVotingRecordConstants.fixed.cs" />
+    <Compile Include="Schemas\Security\BannedIpConstants.fixed.cs" />
+    <Compile Include="Schemas\ContentManagement\PostConstants.fixed.cs" />
+    <Compile Include="Schemas\ContentManagement\TagConstants.fixed.cs" />
+    <Compile Include="Schemas\Configuration\BillingSettingsConstants.fixed.cs" />
+    <Compile Include="Schemas\Configuration\SecuritySettingsConstants.fixed.cs" />
+    <Compile Include="Schemas\Configuration\SystemSettingsConstants.fixed.cs" />
+    <Compile Include="Schemas\Shared\EntityAttributeConstants.fixed.cs" />
+    <Compile Include="Schemas\ContentManagement\CategoryConstants.fixed.cs" />
+    <Compile Include="Schemas\Constants.fixed.cs" />
+    <Compile Include="Schemas\Components\MetadataComponentConstants.fixed.cs" />
+    <Compile Include="Schemas\Fundamentals\AlbumConstants.fixed.cs" />
+    <Compile Include="Schemas\Configuration\SettingConstants.fixed.cs" />
+    <Compile Include="Schemas\Fundamentals\GenreConstants.fixed.cs" />
+    <Compile Include="Schemas\Security\UserConstants.fixed.cs" />
+    <Compile Include="Schemas\Misc\RedirectorConstants.fixed.cs" />
+    <Compile Include="Schemas\Fundamentals\TrackConstants.fixed.cs" />
+    <Compile Include="Schemas\Systematic\ScheduleTaskConstants.fixed.cs" />
+    <Compile Include="Schemas\Security\PermissionRecordConstants.fixed.cs" />
+    <Compile Include="Schemas\Fundamentals\PublisherConstants.fixed.cs" />
+    <Compile Include="Schemas\ContentManagement\PollChoiceConstants.fixed.cs" />
+    <Compile Include="Schemas\ContentManagement\PollConstants.fixed.cs" />
+    <Compile Include="Schemas\Billing\OrderLineConstants.fixed.cs" />
+    <Compile Include="Schemas\Billing\OrderConstants.fixed.cs" />
+    <Compile Include="Schemas\ContentManagement\NewsConstants.fixed.cs" />
+    <Compile Include="Schemas\Systematic\LogConstants.fixed.cs" />
+    <Compile Include="Schemas\Systematic\QueuedEmailConstants.fixed.cs" />
+    <Compile Include="Schemas\Systematic\NewsletterSubscriptionConstants.fixed.cs" />
+    <Compile Include="Schemas\Systematic\MessageTemplateConstants.fixed.cs" />
+    <Compile Include="Schemas\Systematic\EmailAccountConstants.fixed.cs" />
+    <Compile Include="Schemas\FileManagement\PictureConstants.fixed.cs" />
+    <Compile Include="Schemas\FileManagement\DownloadConstants.fixed.cs" />
+    <Compile Include="Schemas\Systematic\ActivityConstants.fixed.cs" />
+    <Compile Include="Schemas\Systematic\ResourceKeyConstants.fixed.cs" />
+    <Compile Include="Schemas\Systematic\ActivityTypeConstants.fixed.cs" />
+    <Compile Include="Schemas\Security\RoleConstants.fixed.cs" />
+    <Compile Include="Schemas\Shared\CommentConstants.fixed.cs" />
+    <Compile Include="Schemas\UserContentConstantsBase.fixed.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SessionProvider.fixed.cs" />
+    <Compile Include="UnitOfWork.fixed.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FaraMedia.VersionInfo\FaraMedia.VersionInfo.csproj">
+      <Project>{47AB8967-8D96-4FE3-9563-FFE13FFC798E}</Project>
+      <Name>FaraMedia.VersionInfo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FaraMedia.Core\FaraMedia.Core.csproj">
+      <Project>{6BDA8332-939F-45B7-A25E-7A797260AE59}</Project>
+      <Name>FaraMedia.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=2.6.3.862, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Autofac.2.6.3.862\lib\NET40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Configuration, Version=2.6.3.862, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Autofac.2.6.3.862\lib\NET40\Autofac.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc, Version=2.6.2.859, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Autofac.Mvc4.2.6.2.859\lib\NET40\Autofac.Integration.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\NHibernate.3.3.2.4000\lib\Net35\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.Validator, Version=1.3.2.4000, Culture=neutral, PublicKeyToken=70154e18752585bd, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\NHibernate.Validator.1.3.2.4000\lib\Net35\NHibernate.Validator.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.Validator.Specific">
+      <HintPath>..\..\packages\NHibernate.Validator.1.3.2.4000\lib\Net35\NHibernate.Validator.Specific.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
+    <Reference Include="UniversalTypeConverter">
+      <HintPath>..\..\packages\UniversalTypeConverter.1.0.2\lib\net40\UniversalTypeConverter.dll</HintPath>
+    </Reference>
+    <Reference Include="Utilities">
+      <HintPath>..\..\packages\CraigsUtilityLibrary.3.2.0033\lib\net40\Utilities.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+</Project>

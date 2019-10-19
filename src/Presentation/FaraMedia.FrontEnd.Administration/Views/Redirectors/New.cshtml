@@ -1,0 +1,33 @@
+﻿@using System.Web.Mvc.Html
+@using FaraMedia.Data.Schemas.Layout.Sections
+@using FaraMedia.Web.Framework.Mvc.Extensions
+@using FaraMedia.Web.Framework.Mvc.UI
+@using FaraMedia.Web.Framework.Routing
+@using FaraMedia.Web.Framework.UI
+@model FaraMedia.FrontEnd.Administration.Models.Miscellaneous.Editable.EditableRedirectorModel
+@{
+    Layout = "_RedirectorsLayout.cshtml";
+    Html.AddLocalizedTitleParts(StatisticsSectionConstants.RedirectorsController.New.Metadata.Title);
+    Html.AddBreadcrumbParts(Html.LocalizedRouteLink(StatisticsSectionConstants.RedirectorsController.New.Metadata.Title, StatisticsSectionConstants.RedirectorsController.New.RouteName));
+}
+<section>
+    <div class="page-header">
+        <h1>
+            @Html.T(StatisticsSectionConstants.RedirectorsController.New.Metadata.Title) 
+            <small>(@Html.LocalizedBackToLink(StatisticsSectionConstants.RedirectorsController.List.Metadata.Title, StatisticsSectionConstants.RedirectorsController.List.RouteName, StatisticsSectionConstants.RedirectorsController.List.Defaults))</small>
+        </h1>
+    </div>
+    @Html.Custom().ValidationSummary(true)
+    @using (Html.Custom().BeginRouteForm(StatisticsSectionConstants.RedirectorsController.New.RouteName)) {
+        <div class="row">
+            <div class="span4">
+                <h2>@Html.T(StatisticsSectionConstants.RedirectorsController.New.Metadata.Title)</h2>
+                <p>@Html.T(StatisticsSectionConstants.RedirectorsController.New.Metadata.Description)</p>
+            </div>
+            <div class="span12">
+                @Html.Partial("_NewOrEdit", Model)
+            </div>
+        </div>
+        @Html.Partial("_NewActions")
+    }
+</section>

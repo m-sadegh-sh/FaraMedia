@@ -1,0 +1,381 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Impelement MetadataComponent for specific entity.</Title>
+			<Shortcut>Metadata</Shortcut>
+			<Author>FaraSun</Author>
+		</Header>
+		<Snippet>
+			<Code Language="CSharp">
+				<![CDATA[					
+					public $QueryType$ WithMetadataTitle(string value = null,
+																					ArgumentEvaluationMode mode = ArgumentEvaluationMode.IgnoreNeutral,
+																					StringOperator @operator = StringOperator.Exact,
+																					StringDirection direction = StringDirection.SourceToExpected) {
+						switch (mode) {
+							case ArgumentEvaluationMode.IgnoreNeutral:
+								if (Neutrals.Is(value))
+									return ($QueryType$) this;
+								break;
+
+							case ArgumentEvaluationMode.Explicit:
+								break;
+
+							default:
+								throw new NotSupportedEnumException(mode);
+						}
+
+						switch (@operator) {
+							case StringOperator.Exact:
+								switch (direction) {
+									case StringDirection.SourceToExpected:
+									case StringDirection.ExpectedToSource:
+									case StringDirection.TwoWay:
+										Entities = Entities.Where($PropertyOperatorName$ => $PropertyOperatorName$.Metadata.Title == value);
+										return ($QueryType$) this;
+
+									default:
+										throw new NotSupportedEnumException(direction);
+								}
+
+							case StringOperator.Contains:
+								switch (direction) {
+									case StringDirection.SourceToExpected:
+										Entities = Entities.Where($PropertyOperatorName$ => $PropertyOperatorName$.Metadata.Title.Contains(value));
+										return ($QueryType$) this;
+
+									case StringDirection.ExpectedToSource:
+										Entities = Entities.Where($PropertyOperatorName$ => value.Contains($PropertyOperatorName$.Metadata.Title));
+										return ($QueryType$) this;
+
+									case StringDirection.TwoWay:
+										Entities = Entities.Where($PropertyOperatorName$ => $PropertyOperatorName$.Metadata.Title.Contains(value) || value.Contains($PropertyOperatorName$.Metadata.Title));
+										return ($QueryType$) this;
+
+									default:
+										throw new NotSupportedEnumException(direction);
+								}
+
+							case StringOperator.StartsWith:
+								switch (direction) {
+									case StringDirection.SourceToExpected:
+										Entities = Entities.Where($PropertyOperatorName$ => $PropertyOperatorName$.Metadata.Title.StartsWith(value));
+										return ($QueryType$) this;
+
+									case StringDirection.ExpectedToSource:
+										Entities = Entities.Where($PropertyOperatorName$ => value.StartsWith($PropertyOperatorName$.Metadata.Title));
+										return ($QueryType$) this;
+
+									case StringDirection.TwoWay:
+										Entities = Entities.Where($PropertyOperatorName$ => $PropertyOperatorName$.Metadata.Title.StartsWith(value) || value.StartsWith($PropertyOperatorName$.Metadata.Title));
+										return ($QueryType$) this;
+
+									default:
+										throw new NotSupportedEnumException(direction);
+								}
+
+							case StringOperator.EndsWith:
+								switch (direction) {
+									case StringDirection.SourceToExpected:
+										Entities = Entities.Where($PropertyOperatorName$ => $PropertyOperatorName$.Metadata.Title.EndsWith(value));
+										return ($QueryType$) this;
+
+									case StringDirection.ExpectedToSource:
+										Entities = Entities.Where($PropertyOperatorName$ => value.EndsWith($PropertyOperatorName$.Metadata.Title));
+										return ($QueryType$) this;
+
+									case StringDirection.TwoWay:
+										Entities = Entities.Where($PropertyOperatorName$ => $PropertyOperatorName$.Metadata.Title.EndsWith(value) || value.EndsWith($PropertyOperatorName$.Metadata.Title));
+										return ($QueryType$) this;
+
+									default:
+										throw new NotSupportedEnumException(direction);
+								}
+
+							default:
+								throw new NotSupportedEnumException(@operator);
+						}
+					}
+
+					public $QueryType$ WithMetadataSlug(string value = null,
+																				 ArgumentEvaluationMode mode = ArgumentEvaluationMode.IgnoreNeutral,
+																				 StringOperator @operator = StringOperator.Exact,
+																				 StringDirection direction = StringDirection.SourceToExpected) {
+						switch (mode) {
+							case ArgumentEvaluationMode.IgnoreNeutral:
+								if (Neutrals.Is(value))
+									return ($QueryType$) this;
+								break;
+
+							case ArgumentEvaluationMode.Explicit:
+								break;
+
+							default:
+								throw new NotSupportedEnumException(mode);
+						}
+
+						switch (@operator) {
+							case StringOperator.Exact:
+								switch (direction) {
+									case StringDirection.SourceToExpected:
+									case StringDirection.ExpectedToSource:
+									case StringDirection.TwoWay:
+										Entities = Entities.Where($PropertyOperatorName$ => $PropertyOperatorName$.Metadata.Slug == value);
+										return ($QueryType$) this;
+
+									default:
+										throw new NotSupportedEnumException(direction);
+								}
+
+							case StringOperator.Contains:
+								switch (direction) {
+									case StringDirection.SourceToExpected:
+										Entities = Entities.Where($PropertyOperatorName$ => $PropertyOperatorName$.Metadata.Slug.Contains(value));
+										return ($QueryType$) this;
+
+									case StringDirection.ExpectedToSource:
+										Entities = Entities.Where($PropertyOperatorName$ => value.Contains($PropertyOperatorName$.Metadata.Slug));
+										return ($QueryType$) this;
+
+									case StringDirection.TwoWay:
+										Entities = Entities.Where($PropertyOperatorName$ => $PropertyOperatorName$.Metadata.Slug.Contains(value) || value.Contains($PropertyOperatorName$.Metadata.Slug));
+										return ($QueryType$) this;
+
+									default:
+										throw new NotSupportedEnumException(direction);
+								}
+
+							case StringOperator.StartsWith:
+								switch (direction) {
+									case StringDirection.SourceToExpected:
+										Entities = Entities.Where($PropertyOperatorName$ => $PropertyOperatorName$.Metadata.Slug.StartsWith(value));
+										return ($QueryType$) this;
+
+									case StringDirection.ExpectedToSource:
+										Entities = Entities.Where($PropertyOperatorName$ => value.StartsWith($PropertyOperatorName$.Metadata.Slug));
+										return ($QueryType$) this;
+
+									case StringDirection.TwoWay:
+										Entities = Entities.Where($PropertyOperatorName$ => $PropertyOperatorName$.Metadata.Slug.StartsWith(value) || value.StartsWith($PropertyOperatorName$.Metadata.Slug));
+										return ($QueryType$) this;
+
+									default:
+										throw new NotSupportedEnumException(direction);
+								}
+
+							case StringOperator.EndsWith:
+								switch (direction) {
+									case StringDirection.SourceToExpected:
+										Entities = Entities.Where($PropertyOperatorName$ => $PropertyOperatorName$.Metadata.Slug.EndsWith(value));
+										return ($QueryType$) this;
+
+									case StringDirection.ExpectedToSource:
+										Entities = Entities.Where($PropertyOperatorName$ => value.EndsWith($PropertyOperatorName$.Metadata.Slug));
+										return ($QueryType$) this;
+
+									case StringDirection.TwoWay:
+										Entities = Entities.Where($PropertyOperatorName$ => $PropertyOperatorName$.Metadata.Slug.EndsWith(value) || value.EndsWith($PropertyOperatorName$.Metadata.Slug));
+										return ($QueryType$) this;
+
+									default:
+										throw new NotSupportedEnumException(direction);
+								}
+
+							default:
+								throw new NotSupportedEnumException(@operator);
+						}
+					}
+
+					public $QueryType$ WithMetadataKeywords(string value = null,
+																						 ArgumentEvaluationMode mode = ArgumentEvaluationMode.IgnoreNeutral,
+																						 StringOperator @operator = StringOperator.Exact,
+																						 StringDirection direction = StringDirection.SourceToExpected) {
+						switch (mode) {
+							case ArgumentEvaluationMode.IgnoreNeutral:
+								if (Neutrals.Is(value))
+									return ($QueryType$) this;
+								break;
+
+							case ArgumentEvaluationMode.Explicit:
+								break;
+
+							default:
+								throw new NotSupportedEnumException(mode);
+						}
+
+						switch (@operator) {
+							case StringOperator.Exact:
+								switch (direction) {
+									case StringDirection.SourceToExpected:
+									case StringDirection.ExpectedToSource:
+									case StringDirection.TwoWay:
+										Entities = Entities.Where($PropertyOperatorName$ => $PropertyOperatorName$.Metadata.Keywords == value);
+										return ($QueryType$) this;
+
+									default:
+										throw new NotSupportedEnumException(direction);
+								}
+
+							case StringOperator.Contains:
+								switch (direction) {
+									case StringDirection.SourceToExpected:
+										Entities = Entities.Where($PropertyOperatorName$ => $PropertyOperatorName$.Metadata.Keywords.Contains(value));
+										return ($QueryType$) this;
+
+									case StringDirection.ExpectedToSource:
+										Entities = Entities.Where($PropertyOperatorName$ => value.Contains($PropertyOperatorName$.Metadata.Keywords));
+										return ($QueryType$) this;
+
+									case StringDirection.TwoWay:
+										Entities = Entities.Where($PropertyOperatorName$ => $PropertyOperatorName$.Metadata.Keywords.Contains(value) || value.Contains($PropertyOperatorName$.Metadata.Keywords));
+										return ($QueryType$) this;
+
+									default:
+										throw new NotSupportedEnumException(direction);
+								}
+
+							case StringOperator.StartsWith:
+								switch (direction) {
+									case StringDirection.SourceToExpected:
+										Entities = Entities.Where($PropertyOperatorName$ => $PropertyOperatorName$.Metadata.Keywords.StartsWith(value));
+										return ($QueryType$) this;
+
+									case StringDirection.ExpectedToSource:
+										Entities = Entities.Where($PropertyOperatorName$ => value.StartsWith($PropertyOperatorName$.Metadata.Keywords));
+										return ($QueryType$) this;
+
+									case StringDirection.TwoWay:
+										Entities = Entities.Where($PropertyOperatorName$ => $PropertyOperatorName$.Metadata.Keywords.StartsWith(value) || value.StartsWith($PropertyOperatorName$.Metadata.Keywords));
+										return ($QueryType$) this;
+
+									default:
+										throw new NotSupportedEnumException(direction);
+								}
+
+							case StringOperator.EndsWith:
+								switch (direction) {
+									case StringDirection.SourceToExpected:
+										Entities = Entities.Where($PropertyOperatorName$ => $PropertyOperatorName$.Metadata.Keywords.EndsWith(value));
+										return ($QueryType$) this;
+
+									case StringDirection.ExpectedToSource:
+										Entities = Entities.Where($PropertyOperatorName$ => value.EndsWith($PropertyOperatorName$.Metadata.Keywords));
+										return ($QueryType$) this;
+
+									case StringDirection.TwoWay:
+										Entities = Entities.Where($PropertyOperatorName$ => $PropertyOperatorName$.Metadata.Keywords.EndsWith(value) || value.EndsWith($PropertyOperatorName$.Metadata.Keywords));
+										return ($QueryType$) this;
+
+									default:
+										throw new NotSupportedEnumException(direction);
+								}
+
+							default:
+								throw new NotSupportedEnumException(@operator);
+						}
+					}
+
+					public $QueryType$ WithMetadataDescription(string value = null,
+																								ArgumentEvaluationMode mode = ArgumentEvaluationMode.IgnoreNeutral,
+																								StringOperator @operator = StringOperator.Exact,
+																								StringDirection direction = StringDirection.SourceToExpected) {
+						switch (mode) {
+							case ArgumentEvaluationMode.IgnoreNeutral:
+								if (Neutrals.Is(value))
+									return ($QueryType$) this;
+								break;
+
+							case ArgumentEvaluationMode.Explicit:
+								break;
+
+							default:
+								throw new NotSupportedEnumException(mode);
+						}
+
+						switch (@operator) {
+							case StringOperator.Exact:
+								switch (direction) {
+									case StringDirection.SourceToExpected:
+									case StringDirection.ExpectedToSource:
+									case StringDirection.TwoWay:
+										Entities = Entities.Where($PropertyOperatorName$ => $PropertyOperatorName$.Metadata.Description == value);
+										return ($QueryType$) this;
+
+									default:
+										throw new NotSupportedEnumException(direction);
+								}
+
+							case StringOperator.Contains:
+								switch (direction) {
+									case StringDirection.SourceToExpected:
+										Entities = Entities.Where($PropertyOperatorName$ => $PropertyOperatorName$.Metadata.Description.Contains(value));
+										return ($QueryType$) this;
+
+									case StringDirection.ExpectedToSource:
+										Entities = Entities.Where($PropertyOperatorName$ => value.Contains($PropertyOperatorName$.Metadata.Description));
+										return ($QueryType$) this;
+
+									case StringDirection.TwoWay:
+										Entities = Entities.Where($PropertyOperatorName$ => $PropertyOperatorName$.Metadata.Description.Contains(value) || value.Contains($PropertyOperatorName$.Metadata.Description));
+										return ($QueryType$) this;
+
+									default:
+										throw new NotSupportedEnumException(direction);
+								}
+
+							case StringOperator.StartsWith:
+								switch (direction) {
+									case StringDirection.SourceToExpected:
+										Entities = Entities.Where($PropertyOperatorName$ => $PropertyOperatorName$.Metadata.Description.StartsWith(value));
+										return ($QueryType$) this;
+
+									case StringDirection.ExpectedToSource:
+										Entities = Entities.Where($PropertyOperatorName$ => value.StartsWith($PropertyOperatorName$.Metadata.Description));
+										return ($QueryType$) this;
+
+									case StringDirection.TwoWay:
+										Entities = Entities.Where($PropertyOperatorName$ => $PropertyOperatorName$.Metadata.Description.StartsWith(value) || value.StartsWith($PropertyOperatorName$.Metadata.Description));
+										return ($QueryType$) this;
+
+									default:
+										throw new NotSupportedEnumException(direction);
+								}
+
+							case StringOperator.EndsWith:
+								switch (direction) {
+									case StringDirection.SourceToExpected:
+										Entities = Entities.Where($PropertyOperatorName$ => $PropertyOperatorName$.Metadata.Description.EndsWith(value));
+										return ($QueryType$) this;
+
+									case StringDirection.ExpectedToSource:
+										Entities = Entities.Where($PropertyOperatorName$ => value.EndsWith($PropertyOperatorName$.Metadata.Description));
+										return ($QueryType$) this;
+
+									case StringDirection.TwoWay:
+										Entities = Entities.Where($PropertyOperatorName$ => $PropertyOperatorName$.Metadata.Description.EndsWith(value) || value.EndsWith($PropertyOperatorName$.Metadata.Description));
+										return ($QueryType$) this;
+
+									default:
+										throw new NotSupportedEnumException(direction);
+								}
+
+							default:
+								throw new NotSupportedEnumException(@operator);
+						}
+					}
+				]]>
+			</Code>
+			<Declarations>
+				<Literal>
+					<ID>QueryType</ID>
+					<Default>TQuery</Default>
+				</Literal>
+				<Literal>
+					<ID>PropertyOperatorName</ID>
+					<Default>e</Default>
+				</Literal>
+			</Declarations>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

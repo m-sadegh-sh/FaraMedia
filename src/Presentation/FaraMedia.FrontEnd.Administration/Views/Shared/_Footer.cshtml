@@ -1,0 +1,16 @@
+﻿@using FaraMedia.Data.Schemas.Layout
+@using FaraMedia.Web.Framework.Mvc.Extensions
+@using FaraMedia.Services.Helpers
+@using FaraMedia.Core.Infrastructure
+@using FaraMedia.Core.Infrastructure.Extensions
+@{
+    var dateTimeHelper = EngineContext.Current.Resolve<IDateTimeHelper>();
+
+    var userDateTime = dateTimeHelper.ConvertToUserTime(DateTime.UtcNow);
+
+    //TODO: Fix this
+    var persianYear = userDateTime.ToPersianDate().Year;
+}
+<footer>
+    <p>@Html.T(PartialsConstants.Footer.Systematic.Copyright, persianYear)</p>
+</footer>

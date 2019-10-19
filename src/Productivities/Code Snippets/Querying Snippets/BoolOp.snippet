@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Impelement BoolOperator for specific entity property.</Title>
+			<Shortcut>BoolOp</Shortcut>
+			<Author>FaraSun</Author>
+		</Header>
+		<Snippet>
+			<Code Language="CSharp">
+				<![CDATA[					
+					public $QueryType$ With$PropertyName$(bool? value = null,
+																							  ArgumentEvaluationMode mode = ArgumentEvaluationMode.IgnoreNeutral,
+																							  BoolOperator @operator = BoolOperator.Equal) {
+						switch (mode) {
+							case ArgumentEvaluationMode.IgnoreNeutral:
+								if (Neutrals.Is(value))
+									return ($QueryType$) this;
+								break;
+
+							case ArgumentEvaluationMode.Explicit:
+								break;
+
+							default:
+								throw new NotSupportedEnumException(mode);
+						}
+
+						switch (@operator) {
+							case BoolOperator.Equal:
+								Entities = Entities.Where($PropertyExpression$ == value);
+								return ($QueryType$) this;
+
+							case BoolOperator.NotEqual:
+								Entities = Entities.Where($PropertyExpression$ != value);
+								return ($QueryType$) this;
+
+							default:
+								throw new NotSupportedEnumException(@operator);
+						}
+					}
+				]]>
+			</Code>
+			<Declarations>
+				<Literal>
+					<ID>QueryType</ID>
+					<Default>TQuery</Default>
+				</Literal>
+				<Literal>
+					<ID>PropertyName</ID>
+					<Default>Bool</Default>
+				</Literal>
+				<Literal>
+					<ID>PropertyExpression</ID>
+					<Default>e => e.Bool</Default>
+				</Literal>
+			</Declarations>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,33 @@
+﻿@using System.Web.Mvc.Html
+@using FaraMedia.Data.Schemas.Layout
+@using FaraMedia.Web.Framework.Mvc.UI
+@using FaraMedia.Web.Framework.Routing
+@using FaraMedia.Data.Schemas.Layout.Sections
+@using FaraMedia.FrontEnd.Administration.GridModels.ContentManagement
+@using FaraMedia.Web.Framework.Mvc.Extensions
+@using FaraMedia.Web.Framework.UI.DataPager
+@using MvcContrib.UI.Grid
+@using FaraMedia.FrontEnd.Administration.GridModels.ContentManagement
+@model FaraMedia.Web.Framework.UI.DataPager.PagedList<FaraMedia.FrontEnd.Administration.Models.Blogs.TagModel>
+@{
+    Layout = "_TagsLayout.cshtml";
+}
+<div class="page-header">
+    <h1>
+        @Html.T(BloggingSectionConstants.TagsController.List.Metadata.Title)
+        <small>(@Html.LocalizedRouteLink(CrudSharedConstants.Commands.New, BloggingSectionConstants.TagsController.New.RouteName, surroundUsing: null))</small>
+    </h1>
+</div>
+@using (Html.Custom().BeginRouteForm(BloggingSectionConstants.TagsController.List.RouteName)) {
+    <div class="row">
+        <div class="zebra-container center">
+            @{
+                Html.Grid(Model).WithModel(new TagModelGrid(Html)).Render();
+            }
+            @Html.Pager(Model, BloggingSectionConstants.TagsController.List.RouteName)
+        </div>
+    </div>
+    if(!Model.IsEmpty()) {
+         @Html.Partial("_ListActions")
+    }
+}

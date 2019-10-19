@@ -1,0 +1,17 @@
+﻿@using FaraMedia.Data.Schemas.Layout.Sections
+@using FaraMedia.Data.Schemas.Configuration
+@using FaraMedia.Web.Framework.Routing
+@using System.Web.Mvc.Html
+<div class="sidebar">
+    <div class="well">
+        <h5>
+            @Html.LocalizedRouteLink(NewsSectionConstants.Metadata.Title, NewsSectionConstants.RouteName, surroundUsing: null)</h5>
+        <ul>
+            @Html.LocalizedRouteLink(NewsSectionConstants.CategoriesController.List.Metadata.Title, NewsSectionConstants.CategoriesController.List.RouteName, NewsSectionConstants.CategoriesController.List.Defaults)
+            @Html.LocalizedRouteLink(NewsSectionConstants.CategoriesController.New.Metadata.Title, NewsSectionConstants.CategoriesController.New.RouteName)
+            @Html.LocalizedRouteLink(NewsSectionConstants.ContentManagementController.List.Metadata.Title, NewsSectionConstants.ContentManagementController.List.RouteName, NewsSectionConstants.ContentManagementController.List.Defaults)
+            @Html.LocalizedRouteLink(NewsSectionConstants.ContentManagementController.New.Metadata.Title, NewsSectionConstants.ContentManagementController.New.RouteName)
+        </ul>
+    </div>
+</div>
+@{Html.RenderAction("AsideNavigation", "Layout");}

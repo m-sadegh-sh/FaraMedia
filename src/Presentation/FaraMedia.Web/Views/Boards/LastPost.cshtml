@@ -1,0 +1,41 @@
+﻿@model LastPostModel
+@using Fara.Core.Infrastructure;
+@using Fara.Web.Models.Boards;
+@using Fara.Web.Framework;
+@using Fara.Services.Customers;
+@using Fara.Services.Forums;
+@using Fara.Services.Helpers;
+@using Fara.Services.Seo;
+@if (@Model.Id > 0)
+{
+    <div class="LastPost">
+        @Model.PostCreatedOnStr<br />
+        @if (Model.ShowTopic)
+        {
+            <text>@T("Forum.In"):</text>
+            @Html.RouteLink(Model.ForumTopicSubject, "TopicSlug", new { id = @Model.ForumTopicId, slug = @Model.ForumTopicSeName })
+            <br />
+        }
+        @if (@Model.CustomerId > 0)
+        {
+            var authorText = @T("Forum.By");
+            var authorName = Html.Encode(@Model.CustomerName);
+            if (Model.AllowViewingProfiles && !Model.IsCustomerGuest)
+            {
+                var output = string.Format("{0}: <a href=\"{2}\">{1}</a>", authorText, authorName, @Url.RouteUrl("CustomerProfile", new { id = Model.CustomerId }));
+                @Html.Raw(output)
+            }
+            else
+            {
+                var output = string.Format("{0}: {1}", authorText, authorName);
+                @output
+            }
+        }
+    </div>
+}
+else
+{
+    <div class="faraost">
+        @T("Forum.NoPosts")
+    </div>
+}

@@ -1,0 +1,14 @@
+﻿@using FaraMedia.Services.Helpers
+@using FaraMedia.Core.Infrastructure
+@using FaraMedia.Core.Infrastructure.Extensions
+@{
+    var dateTimeHelper = EngineContext.Current.Resolve<IDateTimeHelper>();
+
+    var userDateTime = dateTimeHelper.ConvertToUserTime(DateTime.UtcNow);
+
+    //TODO: Fix this
+    var persianDate = userDateTime.ToPersianDate();
+}
+<div class="current-date-time">
+    @persianDate
+</div>

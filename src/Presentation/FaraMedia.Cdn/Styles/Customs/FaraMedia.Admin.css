@@ -1,0 +1,52 @@
+﻿/*@font-face {
+	font-family: Homa;
+	src: url('http://www.cdn-faramedia.net/fonts/bhoma.ttf');
+}*/
+
+* { font-family: "B Homa" !important; }
+
+body {
+    direction: rtl;
+    padding-top: 40px;
+}
+
+input,
+textarea,
+select { line-height: 28px; }
+
+input { height: 28px; }
+
+.well > h5 > a.active, .well > ul > li.active > a, .well > ul > li > a.active { color: #404040; }
+
+form > .row { margin-bottom: 18px; }
+
+form > .row:last-child { margin-bottom: -18px; }
+
+td > .btn { padding: 0 14px 1px 14px; }
+
+.status-bar {
+    background-color: #E5E5E5;
+    color: #808080;
+    display: block;
+    margin-bottom: 18px;
+    padding: 7px 14px 7px 14px;
+}
+
+.current-date-time { float: right; }
+
+.version { float: left; }
+
+span.clearfix {
+    clear: both;
+    display: block;
+    height: 0;
+    width: 100%;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.zebra-container { width: 90%; }

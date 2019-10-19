@@ -1,0 +1,8 @@
+﻿@using FaraMedia.Data.Schemas.ContentManagement
+@using FaraMedia.Web.Framework.Mvc.Extensions
+@using FaraMedia.Web.Framework.Mvc.UI
+@using FaraMedia.Data.Schemas.ContentManagement
+@model FaraMedia.FrontEnd.Administration.Models.Blogs.Editable.EditableTagModel
+@Html.Custom().TextBoxFor(etm => etm.Text, new {
+    @class = "xlarge"
+})

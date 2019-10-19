@@ -1,0 +1,9 @@
+﻿@using FaraMedia.Data.Schemas.ContentManagement
+@using FaraMedia.Web.Framework.Mvc.Extensions
+@using FaraMedia.Web.Framework.Mvc.UI
+@model FaraMedia.FrontEnd.Administration.Models.ContentManagement.Editable.EditableCategoryModel
+@Html.Custom().TextBoxFor(ecm => ecm.Title, new {
+    @class = "xlarge"
+})
+@Html.Custom().DropDownListFor(ecm => ecm.IconFileId, Model.AllIconFiles, Html.T(CategoryConstants.Fields.IconFile.Hints))
+@Html.Custom().DropDownListFor(ecm => ecm.ParentId, Model.AllParents, Html.T(CategoryConstants.Fields.Parent.Hints))

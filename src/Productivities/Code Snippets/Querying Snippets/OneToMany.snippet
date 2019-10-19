@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Impelement OneToMany for specific entity.</Title>
+			<Shortcut>OneToMany</Shortcut>
+			<Author>FaraSun</Author>
+		</Header>
+		<Snippet>
+			<Code Language="CSharp">
+				<![CDATA[
+					public $QueryType$ With$PropertyName$($PropertyType$ value = null,
+																								ArgumentEvaluationMode mode = ArgumentEvaluationMode.IgnoreNeutral,
+																								CollectionOperator @operator = CollectionOperator.Equal,
+																								CollectionDirection direction = CollectionDirection.Any) {
+						switch (mode) {
+							case ArgumentEvaluationMode.IgnoreNeutral:
+								if (Neutrals.Is(value))
+									return this;
+								break;
+
+							case ArgumentEvaluationMode.Explicit:
+								break;
+
+							default:
+								throw new NotSupportedEnumException(mode);
+						}
+
+						switch (@operator) {
+							case CollectionOperator.Equal:
+								switch (direction) {
+									case CollectionDirection.Any:
+										Entities = Entities.Where($PropertyExpression$.Any($ChildPropertyExpression$ == value));
+										return this;
+
+									case CollectionDirection.All:
+										Entities = Entities.Where($PropertyExpression$.All($ChildPropertyExpression$ == value));
+										return this;
+
+									default:
+										throw new NotSupportedEnumException(direction);
+								}
+
+							case CollectionOperator.NotEqual:
+								switch (direction) {
+									case CollectionDirection.Any:
+										Entities = Entities.Where($PropertyExpression$.Any($ChildPropertyExpression$ != value));
+										return this;
+
+									case CollectionDirection.All:
+										Entities = Entities.Where($PropertyExpression$.All($ChildPropertyExpression$ != value));
+										return this;
+
+									default:
+										throw new NotSupportedEnumException(direction);
+								}
+							default:
+								throw new NotSupportedEnumException(@operator);
+						}
+					}
+
+					public $QueryType$ With$PropertyName$Id(long? value = null,
+																							    ArgumentEvaluationMode mode = ArgumentEvaluationMode.IgnoreNeutral,
+																							    CollectionOperator @operator = CollectionOperator.Equal,
+																							    CollectionDirection direction = CollectionDirection.Any) {
+						switch (mode) {
+							case ArgumentEvaluationMode.IgnoreNeutral:
+								if (Neutrals.Is(value))
+									return this;
+								break;
+
+							case ArgumentEvaluationMode.Explicit:
+								break;
+
+							default:
+								throw new NotSupportedEnumException(mode);
+						}
+
+						switch (@operator) {
+							case CollectionOperator.Equal:
+								switch (direction) {
+									case CollectionDirection.Any:
+										Entities = Entities.Where($PropertyExpression$.Any($ChildPropertyExpression$.Id == value));
+										return this;
+
+									case CollectionDirection.All:
+										Entities = Entities.Where($PropertyExpression$.All($ChildPropertyExpression$.Id == value));
+										return this;
+
+									default:
+										throw new NotSupportedEnumException(direction);
+								}
+
+							case CollectionOperator.NotEqual:
+								switch (direction) {
+									case CollectionDirection.Any:
+										Entities = Entities.Where($PropertyExpression$.Any($ChildPropertyExpression$.Id != value));
+										return this;
+
+									case CollectionDirection.All:
+										Entities = Entities.Where($PropertyExpression$.All($ChildPropertyExpression$.Id != value));
+										return this;
+
+									default:
+										throw new NotSupportedEnumException(direction);
+								}
+							default:
+								throw new NotSupportedEnumException(@operator);
+						}
+					}
+				]]>
+			</Code>
+			<Declarations>
+				<Literal>
+					<ID>QueryType</ID>
+					<Default>TQuery</Default>
+				</Literal>
+				<Literal>
+					<ID>PropertyName</ID>
+					<Default>OneToMany</Default>
+				</Literal>
+				<Literal>
+					<ID>PropertyType</ID>
+					<Default>EntityBase</Default>
+				</Literal>
+				<Literal>
+					<ID>PropertyExpression</ID>
+					<Default>e => e.Id</Default>
+				</Literal>
+				<Literal>
+					<ID>ChildPropertyExpression</ID>
+					<Default>child => child</Default>
+				</Literal>
+			</Declarations>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

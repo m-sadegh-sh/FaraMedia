@@ -1,0 +1,34 @@
+﻿@using System.Web.Mvc.Html
+@using FaraMedia.Data.Schemas.Layout.Sections
+@using FaraMedia.Web.Framework.Mvc.Extensions
+@using FaraMedia.Web.Framework.Mvc.UI
+@using FaraMedia.Web.Framework.Routing
+@using FaraMedia.Web.Framework.UI
+@model FaraMedia.FrontEnd.Administration.Models.ContentManagement.Editable.EditableNewsModel
+@{
+    Layout = "_NewsLayout.cshtml";
+    Html.AddLocalizedTitleParts(NewsSectionConstants.ContentManagementController.New.Metadata.Title);
+    Html.AddBreadcrumbParts(Html.LocalizedRouteLink(NewsSectionConstants.ContentManagementController.New.Metadata.Title, NewsSectionConstants.ContentManagementController.New.RouteName));
+}
+<section>
+    <div class="page-header">
+        <h1>
+            @Html.T(NewsSectionConstants.ContentManagementController.New.Metadata.Title) 
+            <small>(@Html.LocalizedBackToLink(NewsSectionConstants.ContentManagementController.List.Metadata.Title, NewsSectionConstants.ContentManagementController.List.RouteName, NewsSectionConstants.ContentManagementController.List.Defaults))</small>
+        </h1>
+    </div>
+    @Html.Custom().ValidationSummary(true)
+    @using (Html.Custom().BeginRouteForm(NewsSectionConstants.ContentManagementController.New.RouteName)) {
+        <div class="row">
+            <div class="span4">
+                <h2>  @Html.T(NewsSectionConstants.ContentManagementController.New.Metadata.Title)</h2>
+                <p>@Html.T(NewsSectionConstants.ContentManagementController.New.Metadata.Description)</p>
+            </div>
+            <div class="span12">
+                @Html.Partial("_NewOrEdit", Model)
+            </div>
+        </div>
+        @Html.Custom().EditorFor(enm => enm.Metadata)
+        @Html.Partial("_NewActions")
+    }
+</section>

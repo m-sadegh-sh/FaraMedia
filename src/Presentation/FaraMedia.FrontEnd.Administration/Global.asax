@@ -1,0 +1,1 @@
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="FaraMedia.FrontEnd.Administration.MvcApplication" Language="C#" %>

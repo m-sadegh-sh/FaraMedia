@@ -1,0 +1,68 @@
+﻿@using System.Web.Mvc.Html
+@using FaraMedia.Data.Schemas.Layout.Sections
+@using FaraMedia.Web.Framework.Mvc.Extensions
+@using FaraMedia.Web.Framework.Mvc.UI
+@using FaraMedia.Web.Framework.Routing
+@using FaraMedia.Web.Framework.UI
+@model FaraMedia.FrontEnd.Administration.Models.Configuration.EditableFileManagementSettingsModel
+@{
+    Layout = "~/Views/Shared/Masters/_SettingsSectionLayout.cshtml";
+    Html.AddTitleParts(Html.T(SettingsSectionConstants.FileManagementSettingsController.Save.Metadata.Title));
+    Html.AddBreadcrumbParts(Html.LocalizedRouteLink(SettingsSectionConstants.FileManagementSettingsController.Save.Metadata.Title, SettingsSectionConstants.FileManagementSettingsController.Save.RouteName));
+}
+<section>
+    <div class="page-header">
+        <h1>
+            @Html.T(SettingsSectionConstants.FileManagementSettingsController.Save.Metadata.Title) 
+            <small>(@Html.LocalizedBackToLink(SettingsSectionConstants.Metadata.Title, SettingsSectionConstants.RouteName, null))</small>
+        </h1>
+    </div>
+    @Html.Custom().ValidationSummary(true)
+    @using (Html.BeginRouteForm(SettingsSectionConstants.FileManagementSettingsController.Save.RouteName)) {
+        <div class="row">
+            <div class="span4">
+                <p>@Html.T(SettingsSectionConstants.FileManagementSettingsController.Save.Metadata.Description)</p>
+            </div>
+            <div class="span12">
+                <fieldset>
+                    <legend>
+                        @Html.T(SettingsSectionConstants.FileManagementSettingsController.Save.Metadata.Title)
+                    </legend>
+                    @Html.Custom().CheckBoxFor(emsm => emsm.DefaultPictureZoomEnabled)
+                    @Html.Custom().CheckBoxFor(emsm => emsm.StoreInDb)
+                    @Html.Custom().TextBoxFor(emsm => emsm.MaximumImageSize, new {
+                        @class = "mini left"
+                    })
+                    @Html.Custom().TextBoxFor(emsm => emsm.AvatarPictureSize, new {
+                        @class = "mini left"
+                    })
+                    @Html.Custom().TextBoxFor(emsm => emsm.ThumbPictureSize, new {
+                        @class = "mini left"
+                    })
+                    @Html.Custom().TextBoxFor(emsm => emsm.DetailsPictureSize, new {
+                        @class = "mini left"
+                    })
+                    @Html.Custom().TextBoxFor(emsm => emsm.ThumbPictureSizeOnDetailsPage, new {
+                        @class = "mini left"
+                    })
+                    @Html.Custom().TextBoxFor(emsm => emsm.ImageQuality, new {
+                        @class = "mini left"
+                    })
+                    @Html.Custom().TextBoxFor(emsm => emsm.DefaultAvatarImageName, new {
+                        @class = "large left"
+                    })
+                    @Html.Custom().TextBoxFor(emsm => emsm.DefaultEntityImageName, new {
+                        @class = "large left"
+                    })
+                    @Html.Custom().TextBoxFor(emsm => emsm.LocalImagePath, new {
+                        @class = "xxlarge left"
+                    })
+                    @Html.Custom().TextBoxFor(emsm => emsm.LocalThumbImagePath, new {
+                        @class = "xxlarge left"
+                    })
+                </fieldset>
+            </div>
+        </div>
+                @Html.Partial("_SaveActions")
+    }
+</section>

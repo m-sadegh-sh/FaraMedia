@@ -1,0 +1,33 @@
+﻿@using System.Web.Mvc.Html
+@using FaraMedia.FrontEnd.Administration.GridModels.Fundamentals
+@using FaraMedia.Web.Framework.Mvc.Extensions
+@using FaraMedia.Web.Framework.Mvc.UI
+@using FaraMedia.Web.Framework.UI.DataPager
+@using MvcContrib.UI.Grid
+@using FaraMedia.Web.Framework.Routing
+@using FaraMedia.Data.Schemas.Layout
+@using FaraMedia.Data.Schemas.Layout.Sections
+@model FaraMedia.Web.Framework.UI.DataPager.PagedList<FaraMedia.FrontEnd.Administration.Models.Fundamentals.AlbumModel>
+@{
+    Layout = "_AlbumsLayout.cshtml";
+}
+<div class="page-header">
+    <h1>
+        @Html.T(AlbumsSectionConstants.FundamentalsController.List.Metadata.Title)
+        <small>(@Html.LocalizedRouteLink(CrudSharedConstants.Commands.New, AlbumsSectionConstants.FundamentalsController.New.RouteName, surroundUsing: null))</small>
+    </h1>
+</div>
+@using (Html.Custom().BeginRouteForm(AlbumsSectionConstants.FundamentalsController.List.RouteName)) {
+    <div class="row">
+        <div class="zebra-container center">
+            @{
+                Html.Grid(Model).WithModel(new AlbumModelGrid(Html)).Render();
+            }
+            
+            @Html.Pager(Model, AlbumsSectionConstants.FundamentalsController.List.RouteName)
+        </div>
+    </div>
+    if (!Model.IsEmpty()) {
+        @Html.Partial("_ListActions")
+    }
+}

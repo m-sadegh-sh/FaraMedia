@@ -1,0 +1,47 @@
+﻿@using FaraMedia.Data.Schemas.Layout.Sections
+@using FaraMedia.Web.Framework.Mvc.Extensions
+@using FaraMedia.Web.Framework.Mvc.UI
+@using FaraMedia.Web.Framework.Routing
+@using FaraMedia.Web.Framework.UI
+@using FaraMedia.Data.Schemas.Authenticate
+@using FaraMedia.Data.Schemas.Root
+@model FaraMedia.FrontEnd.Administration.Models.Sign.SignInModel
+@{
+    Layout = "_SignLayout.cshtml";
+    Html.AddTitleParts(Html.T(AuthenticateSectionConstants.SignController.In.Metadata.Title));
+    Html.AddBreadcrumbParts(Html.LocalizedRouteLink(AuthenticateSectionConstants.SignController.In.Metadata.Title, AuthenticateSectionConstants.SignController.In.RouteName));
+}
+<div class="page-header">
+    <h1>
+        @Html.T(AuthenticateSectionConstants.SignController.In.Metadata.Title) 
+        <small>(@Html.LocalizedBackToLink(RootSectionConstants.CommonController.Home.Metadata.Title, RootSectionConstants.CommonController.Home.RouteName, null))</small>
+    </h1>
+</div>
+@using (Html.Custom().BeginRouteForm(AuthenticateSectionConstants.SignController.In.RouteName)) {
+    @Html.Custom().ResolveThen()
+    @Html.Custom().ValidationSummary(true)
+    <div class="row">
+        <div class="span4">
+            <p>@Html.T(AuthenticateSectionConstants.SignController.In.Metadata.Description)</p>
+        </div>
+        <div class="span9">
+            <fieldset>
+                <legend>
+                    @Html.T(AuthenticateSectionConstants.SignController.In.Metadata.Title)</legend>
+                @if (Model.UserNamesEnabled) {
+                    @Html.Custom().TextBoxFor(sim => sim.UserName)
+                } else {
+                    @Html.Custom().TextBoxFor(sim => sim.Email)
+                }
+                @Html.Custom().PasswordFor(sim => sim.Password)
+                @Html.Custom().CheckBoxFor(sim => sim.RememberMe)
+            </fieldset>
+        </div>
+    </div>
+    <div class="row">
+        <div class="actions">
+            <button type="submit" name="sign-in" value="sign-in" class="btn primary">
+                @Html.T(AuthenticateSectionConstants.SignController.In.Commands.SignIn)</button>
+        </div>
+    </div>
+}

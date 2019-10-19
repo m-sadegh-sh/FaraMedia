@@ -1,0 +1,36 @@
+﻿@model IList<PublisherModel>
+@{
+    Layout = "~/Views/Shared/_ColumnsThree.cshtml";
+
+    //title
+    Html.AddTitleParts(T("PageTitle.Manufactures").Text);
+}
+@using Fara.Core;
+@using Fara.Core.Infrastructure;
+@using Fara.Web.Framework.UI;
+@using Fara.Web.Models.Catalog;
+<div class="publisherlist-page">
+    <div class="page-title">
+        <h1>@T("Publishers.List")</h1>
+    </div>
+    <div class="clear">
+    </div>
+    <div class="publisher-grid">
+        @if (Model.Count > 0)
+        {
+            @(Html.DataList<PublisherModel>(Model, 3,
+                    @<div class="publisher-item">
+                        <h2 class="man-title">
+                            <a href="@Url.RouteUrl("Publisher", new { publisherId = item.Id, SeName = item.SeName })" title="@item.PictureModel.Title">
+                                @item.Name</a>
+                        </h2>
+                        <div class="picture">
+                            <a href="@Url.RouteUrl("Publisher", new { publisherId = item.Id, SeName = item.SeName })" title="@item.PictureModel.Title">
+                                <img style="border-width: 0px;" alt="@item.PictureModel.AlternateText" src="@item.PictureModel.ImageUrl"
+                                        title="@item.PictureModel.Title" /></a>
+                        </div>
+                    </div>
+                ))
+        }
+    </div>
+</div>

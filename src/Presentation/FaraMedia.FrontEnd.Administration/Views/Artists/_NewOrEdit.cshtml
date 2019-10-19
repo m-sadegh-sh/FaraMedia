@@ -1,0 +1,18 @@
+﻿@using FaraMedia.Data.Schemas.Fundamentals
+@using FaraMedia.Web.Framework.Mvc.Extensions
+@using FaraMedia.Web.Framework.Mvc.UI
+@model FaraMedia.FrontEnd.Administration.Models.Fundamentals.Editable.EditableArtistModel
+@Html.Custom().CheckBoxFor(eam => eam.AllowComments)
+@Html.Custom().DatePickerFor(eam => eam.BirthDateDay, eam => eam.BirthDateMonth, eam => eam.BirthDateYear, selectedDay: Model.BirthDateDay, selectedMonth: Model.BirthDateMonth, selectedYear: Model.BirthDateYear, beginYearOffset: - 10, endYearOffset: 10)
+@Html.Custom().TextBoxFor(eam => eam.FullName, new {
+    @class = "xxlarge"
+})
+@Html.Custom().TextBoxFor(eam => eam.AlternativeName, new {
+    @class = "xlarge"
+})
+@Html.Custom().TextBoxFor(eam => eam.HomeTown)
+@Html.Custom().TextAreaFor(eam => eam.Biography, 10, 70)
+@Html.Custom().TextBoxFor(eam => eam.FacebookTargetUrl, new {
+    @class = "xxlarge left"
+})
+@Html.Custom().DropDownListFor(eam => eam.AvatarId, Model.AvailableAvatars, Html.T(ArtistConstants.Fields.Avatar.Hints))

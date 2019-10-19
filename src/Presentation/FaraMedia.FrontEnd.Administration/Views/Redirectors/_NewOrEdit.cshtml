@@ -1,0 +1,9 @@
+﻿@using FaraMedia.Web.Framework.Mvc.UI
+@model FaraMedia.FrontEnd.Administration.Models.Miscellaneous.Editable.EditableRedirectorModel
+@Html.Custom().TextBoxFor(erm => erm.TargetUrl, new {
+    @class = "xxlarge left"
+})
+@Html.Custom().TextBoxFor(erm => erm.Slug, new {
+    @class = "xxlarge left"
+})
+@Html.Custom().TextAreaFor(erm => erm.Description, 2, 70)

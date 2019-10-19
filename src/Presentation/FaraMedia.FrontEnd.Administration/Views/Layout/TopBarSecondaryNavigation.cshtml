@@ -1,0 +1,5 @@
+﻿@using FaraMedia.Web.Framework.UI.Navigation.Renderers.TopBar
+@model FaraMedia.Web.Framework.UI.Navigation.MenuBuilderContext
+<div class="pull-right">
+    @Model.RenderUsing(new TopBarMenuRenderer(Html))
+</div>

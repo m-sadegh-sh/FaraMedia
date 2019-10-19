@@ -1,0 +1,14 @@
+﻿@using System.Web.Mvc.Html
+@using FaraMedia.Web.Framework.UI
+@{
+    Layout = "_Layout.cshtml";
+    Html.AddCssFileParts(@Cdn.GetStylePath("Customs/FaraMedia.SingleBox.Overrides.css"));
+}
+<div class="container">
+    @Html.Partial("_Breadcrumb")
+    @Html.Partial("_Notifications")
+    <div class="content">
+        @RenderBody()
+    </div>
+    @Html.Partial("_Footer")
+</div>

@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Impelement StringOperator for specific entity property.</Title>
+			<Shortcut>StrOp</Shortcut>
+			<Author>FaraSun</Author>
+		</Header>
+		<Snippet>
+			<Code Language="CSharp">
+				<![CDATA[
+					public $QueryType$ With$PropertyName$(string value = null,
+																								ArgumentEvaluationMode mode = ArgumentEvaluationMode.IgnoreNeutral,
+																								StringOperator @operator = StringOperator.Exact,
+																								StringDirection direction = StringDirection.SourceToExpected) {
+						switch (mode) {
+							case ArgumentEvaluationMode.IgnoreNeutral:
+								if (Neutrals.Is(value))
+									return ($QueryType$) this;
+								break;
+
+							case ArgumentEvaluationMode.Explicit:
+								break;
+
+							default:
+								throw new NotSupportedEnumException(mode);
+						}
+
+						switch (@operator) {
+							case StringOperator.Exact:
+								switch (direction) {
+									case StringDirection.SourceToExpected:
+									case StringDirection.ExpectedToSource:
+									case StringDirection.TwoWay:
+										Entities = Entities.Where($PropertyExpression$ == value);
+										return ($QueryType$) this;
+
+									default:
+										throw new NotSupportedEnumException(direction);
+								}
+
+							case StringOperator.Contains:
+								switch (direction) {
+									case StringDirection.SourceToExpected:
+										Entities = Entities.Where($PropertyExpression$.Contains(value));
+										return ($QueryType$) this;
+
+									case StringDirection.ExpectedToSource:
+										Entities = Entities.Where($PropertyOperatorName$ => value.Contains($PropertyOperatorName$.$PropertyValue$));
+										return ($QueryType$) this;
+
+									case StringDirection.TwoWay:
+										Entities = Entities.Where($PropertyExpression$.Contains(value) || value.Contains($PropertyOperatorName$.$PropertyValue$));
+										return ($QueryType$) this;
+
+									default:
+										throw new NotSupportedEnumException(direction);
+								}
+
+							case StringOperator.StartsWith:
+								switch (direction) {
+									case StringDirection.SourceToExpected:
+										Entities = Entities.Where($PropertyExpression$.StartsWith(value));
+										return ($QueryType$) this;
+
+									case StringDirection.ExpectedToSource:
+										Entities = Entities.Where($PropertyOperatorName$ => value.StartsWith($PropertyOperatorName$.$PropertyValue$));
+										return ($QueryType$) this;
+
+									case StringDirection.TwoWay:
+										Entities = Entities.Where($PropertyExpression$.StartsWith(value) || value.StartsWith($PropertyOperatorName$.$PropertyValue$));
+										return ($QueryType$) this;
+
+									default:
+										throw new NotSupportedEnumException(direction);
+								}
+
+							case StringOperator.EndsWith:
+								switch (direction) {
+									case StringDirection.SourceToExpected:
+										Entities = Entities.Where($PropertyExpression$.EndsWith(value));
+										return ($QueryType$) this;
+
+									case StringDirection.ExpectedToSource:
+										Entities = Entities.Where($PropertyOperatorName$ => value.EndsWith($PropertyOperatorName$.$PropertyValue$));
+										return ($QueryType$) this;
+
+									case StringDirection.TwoWay:
+										Entities = Entities.Where($PropertyExpression$.EndsWith(value) || value.EndsWith($PropertyOperatorName$.$PropertyValue$));
+										return ($QueryType$) this;
+
+									default:
+										throw new NotSupportedEnumException(direction);
+								}
+
+							default:
+								throw new NotSupportedEnumException(@operator);
+						}
+					}
+				]]>
+			</Code>
+			<Declarations>
+				<Literal>
+					<ID>QueryType</ID>
+					<Default>TQuery</Default>
+				</Literal>
+				<Literal>
+					<ID>PropertyName</ID>
+					<Default>Id</Default>
+				</Literal>
+				<Literal>
+					<ID>PropertyExpression</ID>
+					<Default>e => e.Id</Default>
+				</Literal>
+				<Literal>
+					<ID>PropertyOperatorName</ID>
+					<Default>e</Default>
+				</Literal>
+				<Literal>
+					<ID>PropertyValue</ID>
+					<Default>Id</Default>
+				</Literal>
+			</Declarations>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

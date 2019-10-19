@@ -1,0 +1,9 @@
+﻿@using FaraMedia.Data.Schemas.Layout.Sections
+@using FaraMedia.Web.Framework.Routing
+@using FaraMedia.Web.Framework.UI
+@{
+    Layout = "~/Views/Shared/Masters/_BloggingSectionLayout.cshtml";
+    Html.AddLocalizedTitleParts(BloggingSectionConstants.BlogsController.List.Metadata.Title);
+    Html.AddBreadcrumbParts(Html.LocalizedRouteLink(BloggingSectionConstants.BlogsController.List.Metadata.Title, BloggingSectionConstants.BlogsController.List.RouteName, BloggingSectionConstants.BlogsController.List.Defaults));
+}
+@RenderBody()

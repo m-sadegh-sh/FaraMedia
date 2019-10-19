@@ -1,0 +1,9 @@
+﻿@using FaraMedia.Web.Framework.Mvc.UI
+@model FaraMedia.FrontEnd.Administration.Models.FileManagement.Editable.EditablePictureModel
+@Html.Custom().CheckBoxFor(epc => epc.IsNew)
+@Html.Custom().TextBoxFor(epc => epc.MimeType)
+@Html.Custom().TextBoxFor(epc => epc.FileName, new {
+    @class = "xlarge"
+})
+@*@Html.Custom().FileFor(epc => epc.PictureBinary)*@
+@Html.Custom().TextBoxFor(epc => epc.PictureBinary)

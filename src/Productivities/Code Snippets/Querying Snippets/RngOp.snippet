@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Impelement RangeOperator for specific entity property.</Title>
+			<Shortcut>RngOp</Shortcut>
+			<Author>FaraSun</Author>
+		</Header>
+		<Snippet>
+			<Code Language="CSharp">
+				<![CDATA[
+					public $QueryType$ With$PropertyName$Between($PropertyType$? from = null,
+																										   ArgumentEvaluationMode fromMode = ArgumentEvaluationMode.IgnoreNeutral,
+																										   $PropertyType$? to = null,
+																										   ArgumentEvaluationMode toMode = ArgumentEvaluationMode.IgnoreNeutral,
+																										   RangeOperator @operator = RangeOperator.Inside) {
+						switch (@operator) {
+							case RangeOperator.Inside:
+								switch (fromMode) {
+									case ArgumentEvaluationMode.IgnoreNeutral:
+										if (!Neutrals.Is(from))
+											Entities = Entities.Where($PropertyExpression$ >= from);
+										break;
+
+									case ArgumentEvaluationMode.Explicit:
+									  	Entities = Entities.Where($PropertyExpression$ == from);
+										break;
+
+									default:
+										throw new NotSupportedEnumException(fromMode);
+								}
+
+								switch (toMode) {
+									case ArgumentEvaluationMode.IgnoreNeutral:
+										if (!Neutrals.Is(to))
+											Entities = Entities.Where($PropertyExpression$ <= to);
+										break;
+
+									case ArgumentEvaluationMode.Explicit:
+										  Entities = Entities.Where($PropertyExpression$ == to);
+										break;
+
+									default:
+										throw new NotSupportedEnumException(toMode);
+								}
+								break;
+
+							case RangeOperator.Outside:
+								switch (fromMode) {
+									case ArgumentEvaluationMode.IgnoreNeutral:
+										if (!Neutrals.Is(from))
+											Entities = Entities.Where($PropertyExpression$ <= from);
+										break;
+
+									case ArgumentEvaluationMode.Explicit:
+										  Entities = Entities.Where($PropertyExpression$ == from);
+										break;
+
+									default:
+										throw new NotSupportedEnumException(fromMode);
+								}
+
+								switch (toMode) {
+									case ArgumentEvaluationMode.IgnoreNeutral:
+										if (!Neutrals.Is(to))
+											Entities = Entities.Where($PropertyExpression$ >= to);
+										break;
+
+									case ArgumentEvaluationMode.Explicit:
+										  Entities = Entities.Where($PropertyExpression$ == to);
+										break;
+
+									default:
+										throw new NotSupportedEnumException(toMode);
+								}
+								break;
+
+							default:
+								throw new NotSupportedEnumException(@operator);
+						}
+
+						return ($QueryType$) this;
+					}
+				]]>
+			</Code>
+			<Declarations>
+				<Literal>
+					<ID>QueryType</ID>
+					<Default>TQuery</Default>
+				</Literal>
+				<Literal>
+					<ID>PropertyName</ID>
+					<Default>Id</Default>
+				</Literal>
+				<Literal>
+					<ID>PropertyType</ID>
+					<Default>int</Default>
+				</Literal>
+				<Literal>
+					<ID>PropertyExpression</ID>
+					<Default>e => e.Id</Default>
+				</Literal>
+			</Declarations>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,7 @@
+﻿@using FaraMedia.Web.Framework.Mvc.UI
+@model FaraMedia.FrontEnd.Administration.Models.Fundamentals.Editable.EditableGenreModel
+@Html.Custom().CheckBoxFor(egm => egm.AllowComments)
+@Html.Custom().TextBoxFor(egm => egm.Title, new {
+    @class = "xlarge"
+})
+@Html.Custom().TextAreaFor(egm => egm.Description, 5, 70)

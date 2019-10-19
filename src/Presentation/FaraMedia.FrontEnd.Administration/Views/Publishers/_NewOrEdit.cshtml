@@ -1,0 +1,22 @@
+﻿@using FaraMedia.Data.Schemas.Fundamentals
+@using FaraMedia.Web.Framework.Mvc.Extensions
+@using FaraMedia.Web.Framework.Mvc.UI
+@model FaraMedia.FrontEnd.Administration.Models.Fundamentals.Editable.EditablePublisherModel
+@Html.Custom().CheckBoxFor(epm => epm.AllowComments)
+@Html.Custom().TextBoxFor(epm => epm.Name, new {
+    @class = "xlarge"
+})
+@Html.Custom().TextBoxFor(epm => epm.Ceo, new {
+    @class = "xlarge"
+})
+@Html.Custom().TextBoxFor(epm => epm.RegisterationNumber, new {
+    @class = "medium"
+})
+@Html.Custom().TextBoxFor(epm => epm.Email, new {
+    @class = "xlarge left"
+})
+@Html.Custom().TextBoxFor(epm => epm.WebsiteTargetUrl, new {
+    @class = "xlarge left"
+})
+@Html.Custom().TextAreaFor(epm => epm.History, 10, 70)
+@Html.Custom().DropDownListFor(epm => epm.LogoId, Model.AvailableLogos, Html.T(PublisherConstants.Fields.Logo.Hints))

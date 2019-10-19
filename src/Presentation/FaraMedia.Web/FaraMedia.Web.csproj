@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4F1F649C-1020-45BE-A487-F416D9297FF3}</ProjectGuid>
+    <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Fara.Web</RootNamespace>
+    <AssemblyName>Fara.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FiftyOne.Foundation">
+      <HintPath>..\..\packages\51Degrees.mobi.1.2.0.5\lib\NET40\FiftyOne.Foundation.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation, Version=3.2.0.0, Culture=neutral, PublicKeyToken=a82054b837897c66, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\FluentValidation.3.2.0.0\lib\Net40\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation.Mvc, Version=3.2.0.0, Culture=neutral, PublicKeyToken=a82054b837897c66, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\FluentValidation.MVC3.3.2.0.0\lib\Net40\FluentValidation.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Mvc">
+      <HintPath>..\..\packages\Mvc2Futures.2.0.50217.0\lib\Microsoft.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcContrib">
+      <HintPath>..\..\packages\MvcContrib.2.0.95.0\lib\MvcContrib.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcMiniProfiler, Version=1.9.0.0, Culture=neutral, PublicKeyToken=b44f9351044011a3, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\MiniProfiler.1.9\lib\net40\MvcMiniProfiler.dll</HintPath>
+    </Reference>
+    <Reference Include="Recaptcha">
+      <HintPath>..\..\packages\recaptcha.1.0.5.0\lib\.NetFramework 4.0\Recaptcha.dll</HintPath>
+    </Reference>
+    <Reference Include="RouteDebugger, Version=2.0.0.7, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\routedebugger.2.0.0.7\lib\net40\RouteDebugger.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\Microsoft ASP.NET\ASP.NET MVC 3\Assemblies\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Telerik.Web.Mvc, Version=2011.3.1115.340, Culture=neutral, PublicKeyToken=29ac1a93ec063d92, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\TelerikMvcExtensions.2011.3.1115\lib\net40\Telerik.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Blogs\BlogPostListModel.cs" />
+    <Compile Include="Models\Blogs\BlogPagingFilteringModel.cs" />
+    <Compile Include="Models\Blogs\BlogPostTagModel.cs" />
+    <Compile Include="Models\Blogs\BlogPostModel.cs" />
+    <Compile Include="Models\Blogs\BlogCommentModel.cs" />
+    <Compile Include="Models\Blogs\BlogPostYearMonthModel.cs" />
+    <Compile Include="Models\Blogs\AddBlogCommentModel.cs" />
+    <Compile Include="Models\Blogs\BlogPostTagListModel.cs" />
+    <Compile Include="Models\Boards\ActiveDiscussionsModel.cs" />
+    <Compile Include="Models\Boards\BoardsIndexModel.cs" />
+    <Compile Include="Models\Boards\ForumRowModel.cs" />
+    <Compile Include="Models\Boards\ForumTopicRowModel.cs" />
+    <Compile Include="Models\Boards\EditForumPostModel.cs" />
+    <Compile Include="Models\Boards\ForumBreadcrumbModel.cs" />
+    <Compile Include="Models\Boards\ForumGroupModel.cs" />
+    <Compile Include="Models\Boards\ForumPageModel.cs" />
+    <Compile Include="Models\Boards\ForumPostModel.cs" />
+    <Compile Include="Models\Boards\EditForumTopicModel.cs" />
+    <Compile Include="Models\Boards\ForumTopicPageModel.cs" />
+    <Compile Include="Models\Boards\LastPostModel.cs" />
+    <Compile Include="Models\Boards\SearchModel.cs" />
+    <Compile Include="Models\Boards\TopicMoveModel.cs" />
+    <Compile Include="Models\Catalog\BackInStockSubscribeModel.cs" />
+    <Compile Include="Models\Catalog\HomePageBestsellersModel.cs" />
+    <Compile Include="Models\Catalog\HomePageProductsModel.cs" />
+    <Compile Include="Models\Catalog\SearchModel.cs" />
+    <Compile Include="Models\Catalog\SearchPagingFilteringModel.cs" />
+    <Compile Include="Models\Catalog\ProductsByTagModel.cs" />
+    <Compile Include="Models\Catalog\PopularProductTagsModel.cs" />
+    <Compile Include="Models\Catalog\CategoryModel.cs" />
+    <Compile Include="Models\Catalog\CategoryNavigationModel.cs" />
+    <Compile Include="Models\Catalog\AddToCompareListModel.cs" />
+    <Compile Include="Models\Catalog\ProductTagModel.cs" />
+    <Compile Include="Models\Catalog\ProductEmailAFriendModel.cs" />
+    <Compile Include="Models\Catalog\ProductSpecificationModel.cs" />
+    <Compile Include="Models\Catalog\ProductReviewModel.cs" />
+    <Compile Include="Models\Catalog\ManufacturerModel.cs" />
+    <Compile Include="Models\Catalog\ManufacturerNavigationModel.cs" />
+    <Compile Include="Models\Catalog\ProductModel.cs" />
+    <Compile Include="Models\Checkout\CheckoutShippingAddressModel.cs" />
+    <Compile Include="Models\Checkout\CheckoutProgressModel.cs" />
+    <Compile Include="Models\Checkout\CheckoutBillingAddressModel.cs" />
+    <Compile Include="Models\Checkout\CheckoutShippingMethodModel.cs" />
+    <Compile Include="Models\Checkout\CheckoutPaymentMethodModel.cs" />
+    <Compile Include="Models\Checkout\CheckoutPaymentInfoModel.cs" />
+    <Compile Include="Models\Checkout\CheckoutConfirmModel.cs" />
+    <Compile Include="Models\Checkout\CheckoutCompletedModel.cs" />
+    <Compile Include="Models\Checkout\OnePageCheckoutModel.cs" />
+    <Compile Include="Models\Checkout\UpdateSectionJsonModel.cs" />
+    <Compile Include="Models\Common\AddressModel.cs" />
+    <Compile Include="Models\Common\FooterModel.cs" />
+    <Compile Include="Models\Common\FaviconModel.cs" />
+    <Compile Include="Models\Common\PagerModel.cs" />
+    <Compile Include="Models\Common\StoreThemeModel.cs" />
+    <Compile Include="Models\Common\LanguageSelectorModel.cs" />
+    <Compile Include="Models\Common\SitemapModel.cs" />
+    <Compile Include="Models\Customer\BackInStockSubscriptionModel.cs" />
+    <Compile Include="Models\Customer\CustomerBackInStockSubscriptionsModel.cs" />
+    <Compile Include="Models\Customer\CustomerForumSubscriptionsModel.cs" />
+    <Compile Include="Models\Customer\ForumSubscriptionModel.cs" />
+    <Compile Include="Models\Customer\ExternalAuthenticationMethodModel.cs" />
+    <Compile Include="Models\Install\InstallModel.cs" />
+    <Compile Include="Models\Cms\WidgetModel.cs" />
+    <Compile Include="Models\News\AddNewsCommentModel.cs" />
+    <Compile Include="Models\News\NewsCommentModel.cs" />
+    <Compile Include="Models\News\NewsPagingFilteringModel.cs" />
+    <Compile Include="Models\News\NewsItemListModel.cs" />
+    <Compile Include="Models\News\NewsItemModel.cs" />
+    <Compile Include="Models\Customer\AccountActivationModel.cs" />
+    <Compile Include="Models\Newsletter\SubscriptionActivationModel.cs" />
+    <Compile Include="Models\Newsletter\NewsletterBoxModel.cs" />
+    <Compile Include="Models\Customer\ChangePasswordModel.cs" />
+    <Compile Include="Models\Customer\PasswordRecoveryConfirmModel.cs" />
+    <Compile Include="Models\Customer\PaswordRecoveryModel.cs" />
+    <Compile Include="Models\Customer\CustomeReturnRequestsModel.cs" />
+    <Compile Include="Models\Customer\CustomerDownloadableProductsModel.cs" />
+    <Compile Include="Models\Customer\CustomerOrderListModel.cs" />
+    <Compile Include="Models\Customer\CustomerAvatarModel.cs" />
+    <Compile Include="Models\Customer\CustomerAddressEditModel.cs" />
+    <Compile Include="Models\Customer\CustomerAddressListModel.cs" />
+    <Compile Include="Models\Customer\CustomerRewardPointsModel.cs" />
+    <Compile Include="Models\Customer\CustomerNavigationModel.cs" />
+    <Compile Include="Models\Customer\CustomerInfoModel.cs" />
+    <Compile Include="Models\Customer\RegisterResultModel.cs" />
+    <Compile Include="Models\Customer\RegisterModel.cs" />
+    <Compile Include="Models\Customer\LoginModel.cs" />
+    <Compile Include="Models\Common\InfoBlockModel.cs" />
+    <Compile Include="Models\Common\MenuModel.cs" />
+    <Compile Include="Models\Common\ContactUsModel.cs" />
+    <Compile Include="Models\Common\TaxTypeSelectorModel.cs" />
+    <Compile Include="Models\Common\CurrencyModel.cs" />
+    <Compile Include="Models\Common\CurrencySelectorModel.cs" />
+    <Compile Include="Models\Common\HeaderLinksModel.cs" />
+    <Compile Include="Models\Common\LanguageModel.cs" />
+    <Compile Include="Models\Common\StoreThemeSelectorModel.cs" />
+    <Compile Include="Models\Catalog\CatalogPagingFilteringModel.cs" />
+    <Compile Include="Models\Media\PictureModel.cs" />
+    <Compile Include="Models\Order\SubmitReturnRequestModel.cs" />
+    <Compile Include="Models\Order\OrderDetailsModel.cs" />
+    <Compile Include="Models\Polls\PollModel.cs" />
+    <Compile Include="Models\PrivateMessages\PrivateMessageIndexModel.cs" />
+    <Compile Include="Models\PrivateMessages\PrivateMessageListModel.cs" />
+    <Compile Include="Models\PrivateMessages\PrivateMessageModel.cs" />
+    <Compile Include="Models\Profile\ProfileInfoModel.cs" />
+    <Compile Include="Models\Profile\ProfileIndexModel.cs" />
+    <Compile Include="Models\Profile\PostsModel.cs" />
+    <Compile Include="Models\Profile\ProfilePostsModel.cs" />
+    <Compile Include="Models\ShoppingCart\MiniShoppingCartModel.cs" />
+    <Compile Include="Models\ShoppingCart\WishlistEmailAFriendModel.cs" />
+    <Compile Include="Models\ShoppingCart\WishlistModel.cs" />
+    <Compile Include="Models\ShoppingCart\OrderTotalsModel.cs" />
+    <Compile Include="Models\ShoppingCart\EstimateShippingModel.cs" />
+    <Compile Include="Models\ShoppingCart\ShoppingCartModel.cs" />
+    <Compile Include="Models\Topics\TopicModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validators\Blogs\BlogPostModelValidator.cs" />
+    <Compile Include="Validators\Boards\EditForumPostValidator.cs" />
+    <Compile Include="Validators\Boards\EditForumTopicValidator.cs" />
+    <Compile Include="Validators\Catalog\ProductEmailAFriendValidator.cs" />
+    <Compile Include="Validators\Catalog\ProductReviewsValidator.cs" />
+    <Compile Include="Validators\Common\AddressValidator.cs" />
+    <Compile Include="Validators\Install\InstallValidator.cs" />
+    <Compile Include="Validators\News\NewsItemValidator.cs" />
+    <Compile Include="Validators\Newsletter\NewsletterBoxValidator.cs" />
+    <Compile Include="Validators\Customer\PasswordRecoveryConfirmValidator.cs" />
+    <Compile Include="Validators\Customer\PasswordRecoveryValidator.cs" />
+    <Compile Include="Validators\PrivateMessages\PrivateMessageValidator.cs" />
+    <Compile Include="Validators\ShoppingCart\WishlistEmailAFriendValidator.cs" />
+    <Compile Include="Validators\Customer\ChangePasswordValidator.cs" />
+    <Compile Include="Validators\Customer\RegisterValidator.cs" />
+    <Compile Include="Validators\Customer\CustomerInfoValidator.cs" />
+    <Compile Include="Validators\Common\ContactUsValidator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Global.asax" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Libraries\FaraMedia.Core\FaraMedia.Core.csproj">
+      <Project>{6BDA8332-939F-45B7-A25E-7A797260AE59}</Project>
+      <Name>Fara.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Libraries\FaraMedia.Data\FaraMedia.Data.csproj">
+      <Project>{CCD7F2C9-6A2C-4CF0-8E89-076B8FC0F144}</Project>
+      <Name>Fara.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Libraries\FaraMedia.Services\FaraMedia.Services.csproj">
+      <Project>{210541AD-F659-47DA-8763-16F36C5CD2F4}</Project>
+      <Name>Fara.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FaraMedia.Web.Framework\FaraMedia.Web.Framework.csproj">
+      <Project>{75FD4163-333C-4DD5-854D-2EF294E45D94}</Project>
+      <Name>Fara.Web.Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>2669</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:2451/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

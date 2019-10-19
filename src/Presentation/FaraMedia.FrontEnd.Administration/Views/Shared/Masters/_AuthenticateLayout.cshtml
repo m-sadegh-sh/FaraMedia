@@ -1,0 +1,11 @@
+﻿@using FaraMedia.Data.Schemas.Layout.Sections
+@using FaraMedia.Web.Framework.Routing
+@using FaraMedia.Web.Framework.UI
+@using FaraMedia.Data.Schemas.Authenticate
+@using FaraMedia.Data.Schemas.Root
+@{
+    Layout = "_SingleBoxLayout.cshtml";
+    Html.AddLocalizedTitleParts(AuthenticateSectionConstants.Metadata.Title);
+    Html.AddBreadcrumbParts(Html.LocalizedRouteLink(AuthenticateSectionConstants.Metadata.Title, RootSectionConstants.CommonController.Home.RouteName));
+}
+@RenderBody()

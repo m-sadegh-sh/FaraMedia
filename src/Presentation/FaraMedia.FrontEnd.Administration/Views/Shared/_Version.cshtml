@@ -1,0 +1,9 @@
+﻿@using FaraMedia.Data.Schemas.Layout
+@using FaraMedia.Web.Framework.Mvc.Extensions
+@using FaraMedia.VersionInfo
+@{
+    var currentVersion = CurrentBuild.CurrentVersion;
+}
+<div class="version">
+    <span>@Html.T(PartialsConstants.Version.Systematic.AppVersion, @currentVersion)</span>
+</div>

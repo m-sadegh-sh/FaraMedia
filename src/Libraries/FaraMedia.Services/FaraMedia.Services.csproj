@@ -1,0 +1,387 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{210541AD-F659-47DA-8763-16F36C5CD2F4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FaraMedia.Services</RootNamespace>
+    <AssemblyName>FaraMedia.Services</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>1</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CuttingEdge.Conditions">
+      <HintPath>..\..\packages\CuttingEdge.Conditions.1.2.0.0\lib\NET35\CuttingEdge.Conditions.dll</HintPath>
+    </Reference>
+    <Reference Include="FarsiLibrary.Utils, Version=1.9.0.0, Culture=neutral, PublicKeyToken=def7c46cace23f8f, processorArchitecture=MSIL" />
+    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\NHibernate.3.3.2.4000\lib\Net35\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.Validator, Version=1.3.2.4000, Culture=neutral, PublicKeyToken=70154e18752585bd, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\NHibernate.Validator.1.3.2.4000\lib\Net35\NHibernate.Validator.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.Validator.Specific">
+      <HintPath>..\..\packages\NHibernate.Validator.1.3.2.4000\lib\Net35\NHibernate.Validator.Specific.dll</HintPath>
+    </Reference>
+    <Reference Include="UniversalTypeConverter">
+      <HintPath>..\..\packages\UniversalTypeConverter.1.0.2\lib\net40\UniversalTypeConverter.dll</HintPath>
+    </Reference>
+    <Reference Include="Utilities">
+      <HintPath>..\..\packages\CraigsUtilityLibrary.3.2.0033\lib\net40\Utilities.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DbService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DbSettingsService.cs" />
+    <Compile Include="Extensions\Billing\OrderServiceExtensions.cs" />
+    <Compile Include="Extensions\AttributeServiceExtensions.cs" />
+    <Compile Include="Extensions\Billing\TransactionRequestServiceExtensions.cs" />
+    <Compile Include="Extensions\Configuration\SettingServiceExtensions.cs" />
+    <Compile Include="Extensions\ContentManagement\PollServiceExtensions.cs" />
+    <Compile Include="Extensions\ContentManagement\PollVotingRecordServiceExtensions.cs" />
+    <Compile Include="Extensions\FileManagement\MediaUtils.cs" />
+    <Compile Include="Extensions\FileManagement\PictureService.cs" />
+    <Compile Include="Extensions\Misc\RedirectorServiceExtensions.cs" />
+    <Compile Include="Extensions\Security\BannedIpServiceExtensions.cs" />
+    <Compile Include="Extensions\Security\PermissionRecordServiceExtensions.cs" />
+    <Compile Include="Extensions\Security\UserExtentions.cs" />
+    <Compile Include="Extensions\Security\UserServiceExtensions.cs" />
+    <Compile Include="Extensions\Shared\EntityAttributeServiceExtensions.cs" />
+    <Compile Include="Extensions\Systematic\ActivityServiceExtensions.cs" />
+    <Compile Include="Extensions\Systematic\InMemoryResourceValueService.cs" />
+    <Compile Include="Extensions\Systematic\LanguageServiceExtensions.cs" />
+    <Compile Include="Extensions\Systematic\LogServiceExtensions.cs" />
+    <Compile Include="Extensions\Systematic\NewsletterSubscriptionServiceExtensions.cs" />
+    <Compile Include="Extensions\Systematic\ResourceKeyServiceExtensions.cs" />
+    <Compile Include="Extensions\Systematic\ResourceValueServiceExtensions.cs" />
+    <Compile Include="Helpers\CdnHelper.cs" />
+    <Compile Include="Helpers\DateTimeHelper.cs" />
+    <Compile Include="Helpers\ICdnHelper.cs" />
+    <Compile Include="Helpers\IDateTimeHelper.cs" />
+    <Compile Include="Helpers\IMobileDeviceHelper.cs" />
+    <Compile Include="Helpers\MobileDeviceHelper.cs" />
+    <Compile Include="IDbService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IDbSettingsService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\IPermissionProvider.cs" />
+    <Compile Include="Providers\PermissionInstaller.cs" />
+    <Compile Include="Providers\StandardPermissionProvider.cs" />
+    <Compile Include="Querying\AttributeQueryBase.fixed.cs" />
+    <Compile Include="Querying\QueryBase.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\QueryFactory.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\Billing\OrderLineQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\Billing\OrderNoteQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\Billing\OrderQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\Billing\OrderStatusQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\Billing\TransactionRequestQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\Billing\TransactionResponseQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\Configuration\SettingQuery.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\ContentManagement\BlogQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\ContentManagement\CategoryQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\ContentManagement\GroupQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\ContentManagement\NewsQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\ContentManagement\PageQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\ContentManagement\PollChoiceItemQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\ContentManagement\PollChoiceQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\ContentManagement\PollQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\ContentManagement\PollVotingRecordQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\ContentManagement\PostQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\ContentManagement\TagQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\EntityQueryBase.fixed.cs" />
+    <Compile Include="Querying\FileManagement\DownloadQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\FileManagement\PictureQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\Fundamentals\AlbumQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\Fundamentals\ArtistQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\Fundamentals\GenreQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\Fundamentals\PhotoAlbumQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\Fundamentals\PhotoQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\Fundamentals\PublisherQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\Fundamentals\TrackQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\Misc\RedirectorQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\Misc\TicketDepartmentQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\Misc\TicketQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\Misc\TicketResponseQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\Misc\TicketStatusQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\Misc\ToDoQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\Misc\ToDoStatusQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\OwnableQueryBase.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\Security\BannedIpQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\Security\BlockReasonQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\Security\FriendRequestQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\Security\PermissionRecordQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\Security\RoleQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\Security\UserQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\Shared\CommentQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\Shared\EntityAttributeQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\Shared\LikeQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\Shared\ShareQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\Systematic\ActivityQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\Systematic\ActivityTypeQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\Systematic\EmailAccountQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\Systematic\LanguageQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\Systematic\LogQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\Systematic\MessageTemplateQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\Systematic\NewsletterSubscriptionQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\Systematic\QueuedEmailQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\Systematic\ResourceKeyQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\Systematic\ResourceValueQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\Systematic\ScheduleTaskQuery.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\UIElementQueryBase.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Querying\UserContentQueryBase.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ValidationProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Validations\Billing\OrderLineValidation.cs" />
+    <Compile Include="Validations\Billing\OrderNoteValidation.cs" />
+    <Compile Include="Validations\Billing\OrderStatusValidation.cs" />
+    <Compile Include="Validations\Billing\OrderValidation.cs" />
+    <Compile Include="Validations\Billing\TransactionRequestValidation.cs" />
+    <Compile Include="Validations\Billing\TransactionResponseValidation.cs" />
+    <Compile Include="Validations\Components\CreationHistoryComponentValidation.cs" />
+    <Compile Include="Validations\Components\DeletionHistoryComponentValidation.cs" />
+    <Compile Include="Validations\Components\MetadataComponentValidation.cs" />
+    <Compile Include="Validations\Components\ModificationHistoryComponentValidation.cs" />
+    <Compile Include="Validations\Components\VisibilityHistoryComponentValidation.cs" />
+    <Compile Include="Validations\Configuration\BillingSettingsValidation.cs" />
+    <Compile Include="Validations\Configuration\FileManagementSettingsValidation.cs" />
+    <Compile Include="Validations\Configuration\SecuritySettingsValidation.cs" />
+    <Compile Include="Validations\Configuration\SettingValidation.cs" />
+    <Compile Include="Validations\Configuration\SystemSettingsValidation.cs" />
+    <Compile Include="Validations\ContentManagement\BlogValidation.cs" />
+    <Compile Include="Validations\ContentManagement\CategoryValidation.cs" />
+    <Compile Include="Validations\ContentManagement\GroupValidation.cs" />
+    <Compile Include="Validations\ContentManagement\NewsValidation.cs" />
+    <Compile Include="Validations\ContentManagement\PageValidation.cs" />
+    <Compile Include="Validations\ContentManagement\PollChoiceItemValidation.cs" />
+    <Compile Include="Validations\ContentManagement\PollChoiceValidation.cs" />
+    <Compile Include="Validations\ContentManagement\PollValidation.cs" />
+    <Compile Include="Validations\ContentManagement\PollVotingRecordValidation.cs" />
+    <Compile Include="Validations\ContentManagement\PostValidation.cs" />
+    <Compile Include="Validations\ContentManagement\TagValidation.cs" />
+    <Compile Include="Validations\EntityValidationBase.cs" />
+    <Compile Include="Validations\Extensions\ChainableConstraintExtensions.cs" />
+    <Compile Include="Validations\Extensions\CollectionConstraintsExtensions.cs" />
+    <Compile Include="Validations\Extensions\ConstraintValidatorContextExtensions.cs" />
+    <Compile Include="Validations\Extensions\DuplicationExtentions.cs" />
+    <Compile Include="Validations\Extensions\InstanceConstraintsExtensions.cs" />
+    <Compile Include="Validations\Extensions\RuleArgsOptionsExtensions.cs" />
+    <Compile Include="Validations\Extensions\StringConstraintsExtensions.cs" />
+    <Compile Include="Validations\FileManagement\DownloadValidation.cs" />
+    <Compile Include="Validations\FileManagement\PictureValidation.cs" />
+    <Compile Include="Validations\Fundamentals\AlbumValidation.cs" />
+    <Compile Include="Validations\Fundamentals\ArtistValidation.cs" />
+    <Compile Include="Validations\Fundamentals\GenreValidation.cs" />
+    <Compile Include="Validations\Fundamentals\PhotoAlbumValidation.cs" />
+    <Compile Include="Validations\Fundamentals\PhotoValidation.cs" />
+    <Compile Include="Validations\Fundamentals\PublisherValidation.cs" />
+    <Compile Include="Validations\Fundamentals\TrackValidation.cs" />
+    <Compile Include="Validations\Misc\RedirectorValidation.cs" />
+    <Compile Include="Validations\Misc\TicketDepartmentValidation.cs" />
+    <Compile Include="Validations\Misc\TicketResponseValidation.cs" />
+    <Compile Include="Validations\Misc\TicketStatusValidation.cs" />
+    <Compile Include="Validations\Misc\TicketValidation.cs" />
+    <Compile Include="Validations\Misc\ToDoStatusValidation.cs" />
+    <Compile Include="Validations\Misc\ToDoValidation.cs" />
+    <Compile Include="Validations\OwnableValidationBase.cs" />
+    <Compile Include="Validations\SecurableValidationBase.cs" />
+    <Compile Include="Validations\Security\BannedIpValidation.cs" />
+    <Compile Include="Validations\Security\BlockTypeValidation.cs" />
+    <Compile Include="Validations\Security\FriendRelationValidation.cs" />
+    <Compile Include="Validations\Security\PermissionRecordValidation.cs" />
+    <Compile Include="Validations\Security\RoleValidation.cs" />
+    <Compile Include="Validations\Security\UserValidation.cs" />
+    <Compile Include="Validations\Shared\CommentValidation.cs" />
+    <Compile Include="Validations\Shared\EntityAttributeValidation.cs" />
+    <Compile Include="Validations\Shared\LikeValidation.cs" />
+    <Compile Include="Validations\Shared\ShareValidation.cs" />
+    <Compile Include="Validations\Systematic\ActivityTypeValidation.cs" />
+    <Compile Include="Validations\Systematic\ActivityValidation.cs" />
+    <Compile Include="Validations\Systematic\EmailAccountValidation.cs" />
+    <Compile Include="Validations\Systematic\LanguageValidation.cs" />
+    <Compile Include="Validations\Systematic\LogValidation.cs" />
+    <Compile Include="Validations\Systematic\MessageTemplateValidation.cs" />
+    <Compile Include="Validations\Systematic\NewsletterSubscriptionValidation.cs" />
+    <Compile Include="Validations\Systematic\QueuedEmailValidation.cs" />
+    <Compile Include="Validations\Systematic\ResourceKeyValidation.cs" />
+    <Compile Include="Validations\Systematic\ResourceValueValidation.cs" />
+    <Compile Include="Validations\Systematic\ScheduleTaskValidation.cs" />
+    <Compile Include="Validations\UIElementValidationBase.cs" />
+    <Compile Include="Validations\UserContentValidationBase.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FaraMedia.VersionInfo\FaraMedia.VersionInfo.csproj">
+      <Project>{47AB8967-8D96-4FE3-9563-FFE13FFC798E}</Project>
+      <Name>FaraMedia.VersionInfo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FaraMedia.Core\FaraMedia.Core.csproj">
+      <Project>{6BDA8332-939F-45B7-A25E-7A797260AE59}</Project>
+      <Name>FaraMedia.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FaraMedia.Data\FaraMedia.Data.csproj">
+      <Project>{CCD7F2C9-6A2C-4CF0-8E89-076B8FC0F144}</Project>
+      <Name>FaraMedia.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Extensions\Fundamentals\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+</Project>

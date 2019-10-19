@@ -1,0 +1,11 @@
+﻿@using FaraMedia.Data.Schemas.Layout
+@using FaraMedia.Web.Framework.Mvc.Extensions
+<div class="row">
+    <div class="actions">
+        <button type="submit" name="post-actions" value="publish-all" class="btn primary">@Html.T(CrudSharedConstants.Commands.PublishAll)</button>
+        <button type="submit" name="post-actions" value="unpublish-all" class="btn primary">@Html.T(CrudSharedConstants.Commands.UnpublishAll)</button>
+        <button type="submit" name="post-actions" value="temporarily-delete-all" class="btn primary">@Html.T(CrudSharedConstants.Commands.TemporarilyDeleteAll)</button>
+        <button type="submit" name="post-actions" value="undelete-all" class="btn primary">@Html.T(CrudSharedConstants.Commands.UnDeleteAll)</button>
+        <button type="submit" name="post-actions" value="permanently-delete-all" class="btn danger">@Html.T(CrudSharedConstants.Commands.PermanentlyDeleteAll)</button>
+    </div>
+</div>

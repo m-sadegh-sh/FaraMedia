@@ -1,0 +1,38 @@
+﻿@using System.Web.Mvc.Html
+@using FaraMedia.Data.Schemas.Layout.Sections
+@using FaraMedia.Web.Framework.Mvc.Extensions
+@using FaraMedia.Web.Framework.Mvc.UI
+@using FaraMedia.Web.Framework.Routing
+@using FaraMedia.Web.Framework.UI
+@model FaraMedia.FrontEnd.Administration.Models.Configuration.EditableCommonSettingsModel
+@{
+    Layout = "~/Views/Shared/Masters/_SettingsSectionLayout.cshtml";
+    Html.AddTitleParts(Html.T(SettingsSectionConstants.CommonSettingsController.Save.Metadata.Title));
+    Html.AddBreadcrumbParts(Html.LocalizedRouteLink(SettingsSectionConstants.CommonSettingsController.Save.Metadata.Title, SettingsSectionConstants.CommonSettingsController.Save.RouteName));
+}
+<section>
+    <div class="page-header">
+        <h1>
+            @Html.T(SettingsSectionConstants.CommonSettingsController.Save.Metadata.Title) 
+            <small>(@Html.LocalizedBackToLink(SettingsSectionConstants.Metadata.Title, SettingsSectionConstants.RouteName, null))</small>
+        </h1>
+    </div>
+    @Html.Custom().ValidationSummary(true)
+    @using (Html.BeginRouteForm(SettingsSectionConstants.CommonSettingsController.Save.RouteName)) {
+        <div class="row">
+            <div class="span4">
+                <p>@Html.T(SettingsSectionConstants.CommonSettingsController.Save.Metadata.Description)</p>
+            </div>
+            <div class="span12">
+                <fieldset>
+                    <legend>
+                        @Html.T(SettingsSectionConstants.CommonSettingsController.Save.Metadata.Title)
+                    </legend>
+                    @Html.Custom().CheckBoxFor(ecsm => ecsm.UseSystemEmailForContactUsForm)
+                    @Html.Custom().CheckBoxFor(ecsm => ecsm.EnableHttpCompression)
+                </fieldset>
+            </div>
+        </div>
+                @Html.Partial("_SaveActions")
+    }
+</section>

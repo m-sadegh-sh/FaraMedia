@@ -1,0 +1,18 @@
+﻿@model FooterModel
+@using Fara.Web.Models.Common;
+<div class="footer">
+    <div class="footer-poweredby">
+        Powered by <a href="http://www.faracommerce.com/">faraCommerce</a>
+        <!--Would you like
+                to remove the "Powered by faraCommerce" link in the bottom of the footer? Find more
+                info here http://www.faracommerce.com/copyrightremoval.aspx -->
+    </div>
+    <div class="footer-disclaimer">
+        @T("Content.CopyrightNotice", DateTime.Now.Year.ToString(), @Model.StoreName)
+    </div>
+    <div class="footer-storetheme">
+        @Html.Action("StoreThemeSelector", "Common")
+    </div>
+    @Html.Action("ChangeDeviceBlock", "Common")
+    @Html.Action("WidgetsByZone", "Widget", new { widgetZone = Fara.Core.Domain.Cms.WidgetZone.Footer })
+</div>

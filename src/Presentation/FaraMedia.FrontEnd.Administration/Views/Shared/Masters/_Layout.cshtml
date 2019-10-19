@@ -1,0 +1,59 @@
+﻿@using System.Web.Mvc.Html
+@using FaraMedia.Web.Framework.Routing
+@using FaraMedia.Web.Framework.UI
+<!DOCTYPE>
+<html>
+    <head>
+        <title>@Html.FaraTitle()</title>
+        <meta name="description" content="@(Html.FaraMetaDescription())" />
+        <meta name="keywords" content="@(Html.FaraMetaKeywords())" />
+        <link href="@Cdn.GetStylePath("Bootstrap/Bootstrap.css")" rel="stylesheet" type="text/css" />
+        <link href="@Cdn.GetStylePath("Customs/FaraMedia.Bootstrap.css")" rel="stylesheet" type="text/css" />
+        <link href="@Cdn.GetStylePath("Customs/FaraMedia.Admin.css")" rel="stylesheet" type="text/css" />
+        @Html.FaraCssFiles()
+        <script src="@Cdn.GetScriptPath("jQuery/jQuery-1.7.2.js")" type="text/javascript"> </script>
+        <script src="@Cdn.GetScriptPath("jQuery/jQuery.Validate.js")" type="text/javascript"> </script>
+        <script src="@Cdn.GetScriptPath("jQuery/jQuery.Unobtrusive-Ajax.js")" type="text/javascript"> </script>
+        <script src="@Cdn.GetScriptPath("jQuery/jQuery.Validate.Unobtrusive.js")" type="text/javascript"> </script>
+        <script src="@Cdn.GetScriptPath("jQuery/Plugins/jQuery.TimeAgo.js")" type="text/javascript"> </script>
+        <script src="@Cdn.GetScriptPath("jQuery/Plugins/jQuery.TableSorter.min.js")" type="text/javascript"> </script>
+        <script src="@Cdn.GetScriptPath("Bootstrap/Bootstrap.Dropdown.js")" type="text/javascript"> </script>
+        <script src="@Cdn.GetScriptPath("Bootstrap/Bootstrap.Modal.js")" type="text/javascript"> </script>
+        @*<script src="@Cdn.GetScriptPath("Cufon/Cufon-1.10.min.js")" type="text/javascript"> </script>
+        <script src="@Cdn.GetScriptPath("Bifon/Bifon-1.1b.js")" type="text/javascript"> </script>
+        <script src="@Cdn.GetScriptPath("Fonts/Homa.js")" type="text/javascript"> </script>*@
+        <script src="@Cdn.GetScriptPath("Customs/Bootstrapper.js")" type="text/javascript"> </script>
+        @Html.FaraScripts()
+        @*<script type="text/javascript">
+            Cufon.replace('body', { onBeforeReplace: Bifon.convert });
+		</script>*@
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"> </script>
+        <![endif]-->
+        @*@{ Html.RenderAction("Favicon", "Common"); }*@
+    </head>
+    <body>
+        <div class="topbar" data-dropdown="dropdown">
+            <div class="topbar-inner">
+                <div class="container-fluid">
+                    @Html.RootLink(new {
+                        @class = "brand"
+                    }, null)
+                    @{
+                        Html.RenderAction("TopBarPrimaryNavigation", "Layout");
+                    }
+                    @Html.Partial("_Auth")
+                    @{
+                        Html.RenderAction("TopBarSecondaryNavigation", "Layout");
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="status-bar">
+            @Html.Partial("_Version")
+            @Html.Partial("_CurrentDateTime")
+            <span class="clearfix"></span>
+        </div>
+        @RenderBody()
+    </body>
+</html>

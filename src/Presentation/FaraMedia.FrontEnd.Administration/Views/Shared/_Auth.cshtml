@@ -1,0 +1,16 @@
+﻿@using FaraMedia.Data.Schemas.Layout
+@using FaraMedia.Web.Framework.Mvc.Extensions
+@using FaraMedia.Web.Framework.Routing
+@using FaraMedia.Services.Security
+@{
+    var currentUser = WorkContext.CurrentUser;
+}
+<p class="pull-right">
+    @if (Request.IsAuthenticated && currentUser != null && currentUser.IsRegistered()) {
+        <span>@Html.T(PartialsConstants.Auth.Systematic.SignedInAs, currentUser.FormatUserName())</span>
+        @Html.SignOutLink(surroundUsing: null)
+    } else {
+        <span>@Html.T(PartialsConstants.Auth.Systematic.Anonymous)</span>
+        @Html.SignInLink(surroundUsing: null)
+    }
+</p>

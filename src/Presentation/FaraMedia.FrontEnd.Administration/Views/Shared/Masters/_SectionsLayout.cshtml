@@ -1,0 +1,12 @@
+﻿@using System.Web.Mvc.Html
+@using FaraMedia.Core.Routing
+@using FaraMedia.FrontEnd.Administration.Schema
+@{
+    Layout = "_MultiBoxLayout.cshtml";
+}
+@if (IsSectionDefined(KnownLayoutParts.ContentSection)) {
+    RenderSection(KnownLayoutParts.ContentSection, true);
+} else {
+    Html.RenderAction("ContentSection", "Layout", RouteParameter.Add("SectionName", (string) ViewBag.SectionControllerName));
+}
+@RenderBody()

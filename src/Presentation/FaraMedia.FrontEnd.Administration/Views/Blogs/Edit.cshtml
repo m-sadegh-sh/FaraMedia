@@ -1,0 +1,35 @@
+﻿@using System.Web.Mvc.Html
+@using FaraMedia.Data.Schemas.Layout.Sections
+@using FaraMedia.Web.Framework.Mvc.Extensions
+@using FaraMedia.Web.Framework.Mvc.UI
+@using FaraMedia.Web.Framework.Routing
+@using FaraMedia.Web.Framework.UI
+@model FaraMedia.FrontEnd.Administration.Models.Blogs.Editable.EditableBlogModel
+@{
+    Layout = "_BlogsLayout.cshtml";
+    Html.AddLocalizedTitleParts(BloggingSectionConstants.BlogsController.Edit.Metadata.Title, Model.Name);
+    Html.AddBreadcrumbParts(Html.LocalizedRouteLinkWithId(BloggingSectionConstants.BlogsController.Edit.Metadata.Title, new[] {Model.Name}, BloggingSectionConstants.BlogsController.Edit.RouteName, Model.Id));
+}
+<section>
+    <div class="page-header">
+        <h1>
+            @Html.T(BloggingSectionConstants.BlogsController.Edit.Metadata.Title, Model.Name)
+            <small>(@Html.LocalizedBackToLink(BloggingSectionConstants.BlogsController.List.Metadata.Title, BloggingSectionConstants.BlogsController.List.RouteName, BloggingSectionConstants.BlogsController.List.Defaults))</small>
+        </h1>
+    </div>
+    @Html.Custom().ValidationSummary(true)
+    @using (Html.Custom().BeginRouteFormWithId(BloggingSectionConstants.BlogsController.Edit.RouteName, Model.Id)) {
+        <div class="row">
+            <div class="span4">
+                <h2>  @Html.T(BloggingSectionConstants.BlogsController.Edit.Metadata.Title, Model.Name)</h2>
+                <p>@Html.T(BloggingSectionConstants.BlogsController.Edit.Metadata.Description)</p>
+            </div>
+            <div class="span12">
+                @Html.Custom().HiddenFor(ebm => ebm.Id)
+                @Html.Partial("_NewOrEdit", Model)
+            </div>
+        </div>
+        @Html.Custom().EditorFor(ebm => ebm.Metadata)
+        @Html.Partial("_EditActions")
+    }
+</section>

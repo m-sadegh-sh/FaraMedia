@@ -1,0 +1,11 @@
+﻿@using FaraMedia.Data.Schemas.News
+@using FaraMedia.Web.Framework.Mvc.Extensions
+@using FaraMedia.Web.Framework.Mvc.UI
+@model FaraMedia.FrontEnd.Administration.Models.News.Editable.EditableNewsModel
+@Html.Custom().CheckBoxFor(enm => enm.AllowComments)
+@Html.Custom().TextBoxFor(enm => enm.Title, new {
+    @class = "xxlarge"
+})
+@Html.Custom().TextAreaFor(enm => enm.Short, 3, 70)
+@Html.Custom().TextAreaFor(enm => enm.Full, 10, 70)
+@Html.Custom().DropDownListFor(enm => enm.CategoryId, Model.AvailableCategories, Html.T(NewsConstants.Fields.Category.Hints))

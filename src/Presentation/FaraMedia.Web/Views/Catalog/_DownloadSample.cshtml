@@ -1,0 +1,9 @@
+﻿@model Fara.Web.Models.Catalog.ProductModel.ProductVariantModel
+@if (!string.IsNullOrWhiteSpace(Model.DownloadSampleUrl))
+{
+    <div class="downloadsample">
+        <span class="downloadsamplebutton">
+            <a href="@Model.DownloadSampleUrl">@T("Products.DownloadSample")</a>
+        </span>
+    </div>
+}

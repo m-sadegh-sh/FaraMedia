@@ -1,0 +1,9 @@
+﻿@using FaraMedia.Data.Schemas.ContentManagement
+@using FaraMedia.Web.Framework.Mvc.Extensions
+@using FaraMedia.Web.Framework.Mvc.UI
+@using FaraMedia.Data.Schemas.ContentManagement
+@model FaraMedia.FrontEnd.Administration.Models.Blogs.Editable.EditableBlogModel
+@Html.Custom().TextBoxFor(ebm => ebm.Name, new {
+    @class = "xlarge"
+})
+@Html.Custom().DropDownListFor(ebm => ebm.UserId, Model.AvailableUsers, Html.T(BlogConstants.Fields.User.Hints))

@@ -1,0 +1,20 @@
+﻿@using FaraMedia.Data.Schemas.Layout
+@using FaraMedia.Web.Framework.Mvc.Extensions
+@model FaraMedia.Web.Framework.Mvc.Models.DeleteConfirmationModel
+<button data-controls-modal="delete-confirmation-modal-@Model.EntityId" data-backdrop="true" data-keyboard="true" class="btn secondary">@Html.T(CrudSharedConstants.Commands.Delete)</button>
+<div id="delete-confirmation-modal-@Model.EntityId" class="modal hide fade">
+    <div class="modal-header">
+        <a href="#" class="close">&times;</a>
+        <h3>
+            @Html.T(CrudSharedConstants.Systematic.Confirmation)</h3>
+    </div>
+    <div class="modal-body">
+        <p>
+            @Html.T(CrudSharedConstants.Systematic.AreYouSureToDelete)
+        </p>
+    </div>
+    <div class="modal-footer">
+        <a href="@Model.PermanentlyDeletionUrl" class="btn danger">@Html.T(CrudSharedConstants.Commands.PermanentlyDelete)</a>
+        <a href="@Model.TemporarilyDeletionUrl" class="btn primary">@Html.T(CrudSharedConstants.Commands.TemporarilyDelete)</a>
+    </div>
+</div>

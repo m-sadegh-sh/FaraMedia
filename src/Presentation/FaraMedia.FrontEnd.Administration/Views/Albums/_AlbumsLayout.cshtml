@@ -1,0 +1,9 @@
+﻿@using FaraMedia.Data.Schemas.Layout.Sections
+@using FaraMedia.Web.Framework.Routing
+@using FaraMedia.Web.Framework.UI
+@{
+    Layout = "~/Views/Shared/Masters/_AlbumsSectionLayout.cshtml";
+    Html.AddLocalizedTitleParts(AlbumsSectionConstants.FundamentalsController.List.Metadata.Title);
+    Html.AddBreadcrumbParts(Html.LocalizedRouteLink(AlbumsSectionConstants.FundamentalsController.List.Metadata.Title, AlbumsSectionConstants.FundamentalsController.List.RouteName, AlbumsSectionConstants.FundamentalsController.List.Defaults));
+}
+@RenderBody()

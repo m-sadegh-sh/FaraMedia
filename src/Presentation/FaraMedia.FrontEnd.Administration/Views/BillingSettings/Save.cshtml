@@ -1,0 +1,53 @@
+﻿@using System.Web.Mvc.Html
+@using FaraMedia.Data.Schemas.Layout.Sections
+@using FaraMedia.Data.Schemas.Configuration
+@using FaraMedia.Web.Framework.Mvc.Extensions
+@using FaraMedia.Web.Framework.Mvc.UI
+@using FaraMedia.Web.Framework.Routing
+@using FaraMedia.Web.Framework.UI
+@model FaraMedia.FrontEnd.Administration.Models.Configuration.EditableBillingSettingsModel
+@{
+    Layout = "~/Views/Shared/Masters/_SettingsSectionLayout.cshtml";
+    Html.AddTitleParts(Html.T(SettingsSectionConstants.BillingSettingsController.Save.Metadata.Title));
+    Html.AddBreadcrumbParts(Html.LocalizedRouteLink(SettingsSectionConstants.BillingSettingsController.Save.Metadata.Title, SettingsSectionConstants.BillingSettingsController.Save.RouteName));
+}
+<section>
+    <div class="page-header">
+        <h1>
+            @Html.T(SettingsSectionConstants.BillingSettingsController.Save.Metadata.Title) 
+            <small>(@Html.LocalizedBackToLink(SettingsSectionConstants.Metadata.Title, SettingsSectionConstants.RouteName, null))</small>
+        </h1>
+    </div>
+    @Html.Custom().ValidationSummary(true)
+    @using (Html.BeginRouteForm(SettingsSectionConstants.BillingSettingsController.Save.RouteName)) {
+        <div class="row">
+            <div class="span4">
+                <p>@Html.T(SettingsSectionConstants.BillingSettingsController.Save.Metadata.Description)</p>
+            </div>
+            <div class="span12">
+                <fieldset>
+                    <legend>
+                        @Html.T(SettingsSectionConstants.BillingSettingsController.Save.Metadata.Title)
+                    </legend>
+                    @Html.Custom().TextBoxFor(ebsm => ebsm.PricePerTrack, new {
+                        @class = "mini left"
+                    })
+                    @Html.Custom().TextBoxFor(ebsm => ebsm.PublisherPercentagePerTrack, new {
+                        @class = "mini left"
+                    })
+                    @Html.Custom().TextBoxFor(ebsm => ebsm.PricePerAlbum, new {
+                        @class = "mini left"
+                    })
+                    @Html.Custom().TextBoxFor(ebsm => ebsm.PublisherPercentagePerAlbum, new {
+                        @class = "mini left"
+                    })
+                    @Html.Custom().DropDownListFor(ebsm => ebsm.PricePerAlbum, Model.AvailableTaxPayTypes, Html.T(BillingSettingsConstants.Fields.TaxPayType.Hints))
+                    @Html.Custom().TextBoxFor(ebsm => ebsm.MerchantId, new {
+                        @class = "large left"
+                    })
+                </fieldset>
+            </div>
+        </div>
+                @Html.Partial("_SaveActions")
+    }
+</section>

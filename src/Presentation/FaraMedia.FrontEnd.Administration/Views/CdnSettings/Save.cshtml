@@ -1,0 +1,51 @@
+﻿@using System.Web.Mvc.Html
+@using FaraMedia.Data.Schemas.Layout.Sections
+@using FaraMedia.Web.Framework.Mvc.Extensions
+@using FaraMedia.Web.Framework.Mvc.UI
+@using FaraMedia.Web.Framework.Routing
+@using FaraMedia.Web.Framework.UI
+@model FaraMedia.FrontEnd.Administration.Models.Configuration.EditableCdnSettingsModel
+@{
+    Layout = "~/Views/Shared/Masters/_SettingsSectionLayout.cshtml";
+    Html.AddTitleParts(Html.T(SettingsSectionConstants.CdnSettingsController.Save.Metadata.Title));
+    Html.AddBreadcrumbParts(Html.LocalizedRouteLink(SettingsSectionConstants.CdnSettingsController.Save.Metadata.Title, SettingsSectionConstants.CdnSettingsController.Save.RouteName));
+}
+<section>
+    <div class="page-header">
+        <h1>
+            @Html.T(SettingsSectionConstants.CdnSettingsController.Save.Metadata.Title) 
+            <small>(@Html.LocalizedBackToLink(SettingsSectionConstants.Metadata.Title, SettingsSectionConstants.RouteName, null))</small>
+        </h1>
+    </div>
+    @Html.Custom().ValidationSummary(true)
+    @using (Html.BeginRouteForm(SettingsSectionConstants.CdnSettingsController.Save.RouteName)) {
+        <div class="row">
+            <div class="span4">
+                <p>@Html.T(SettingsSectionConstants.CdnSettingsController.Save.Metadata.Description)</p>
+            </div>
+            <div class="span12">
+                <fieldset>
+                    <legend>
+                        @Html.T(SettingsSectionConstants.CdnSettingsController.Save.Metadata.Title)
+                    </legend>
+                    @Html.Custom().TextBoxFor(ecsm => ecsm.CdnUrl, new {
+                        @class = "xlarge left"
+                    })
+                    @Html.Custom().TextBoxFor(ecsm => ecsm.ImagesPath, new {
+                        @class = "xlarge left"
+                    })
+                    @Html.Custom().TextBoxFor(ecsm => ecsm.CssPath, new {
+                        @class = "xlarge left"
+                    })
+                    @Html.Custom().TextBoxFor(ecsm => ecsm.JsPath, new {
+                        @class = "xlarge left"
+                    })
+                    @Html.Custom().TextBoxFor(ecsm => ecsm.DownloadsPath, new {
+                        @class = "xlarge left"
+                    })
+                </fieldset>
+            </div>
+        </div>
+                @Html.Partial("_SaveActions")
+    }
+</section>

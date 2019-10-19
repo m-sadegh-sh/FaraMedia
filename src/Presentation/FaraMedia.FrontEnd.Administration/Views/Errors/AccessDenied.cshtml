@@ -1,0 +1,18 @@
+﻿@using FaraMedia.Data.Schemas.Layout.Sections
+@using FaraMedia.Web.Framework.Mvc.Extensions
+@using FaraMedia.Web.Framework.Routing
+@using FaraMedia.Web.Framework.UI
+@using FaraMedia.Data.Schemas.Root
+@model string
+@{
+    Layout = "_ErrorsLayout.cshtml";
+    Html.AddTitleParts(Html.T(RootSectionConstants.ErrorsController.AccessDenied.Metadata.Title));
+    Html.AddBreadcrumbParts(Html.LocalizedRouteLink(RootSectionConstants.ErrorsController.AccessDenied.Metadata.Title, RootSectionConstants.ErrorsController.AccessDenied.RouteName));
+}
+<div class="page-header">
+    <h1>
+        @Html.T(RootSectionConstants.ErrorsController.AccessDenied.Metadata.Title)
+        <small>(@Html.LocalizedBackToLink(RootSectionConstants.CommonController.Home.Metadata.Title, RootSectionConstants.CommonController.Home.RouteName, null))</small>
+    </h1>
+</div>
+<p>@Html.Raw(Html.T(RootSectionConstants.ErrorsController.AccessDenied.Metadata.Description, Html.Encode(Model)))</p>

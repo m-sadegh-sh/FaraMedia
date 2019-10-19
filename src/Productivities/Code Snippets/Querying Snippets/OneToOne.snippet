@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Impelement OneToOne for specific entity.</Title>
+			<Shortcut>OneToOne</Shortcut>
+			<Author>FaraSun</Author>
+		</Header>
+		<Snippet>
+			<Code Language="CSharp">
+				<![CDATA[					
+					public $QueryType$ With$PropertyName$($PropertyType$ value = null,
+																							  ArgumentEvaluationMode mode = ArgumentEvaluationMode.IgnoreNeutral,
+																							  EntityOperator @operator = EntityOperator.Equal) {
+						switch (mode) {
+							case ArgumentEvaluationMode.IgnoreNeutral:
+								if (Neutrals.Is(value))
+									return ($QueryType$) this;
+								break;
+
+							case ArgumentEvaluationMode.Explicit:
+								break;
+
+							default:
+								throw new NotSupportedEnumException(mode);
+						}
+
+						switch (@operator) {
+							case EntityOperator.Equal:
+								Entities = Entities.Where($PropertyExpression$ == value);
+								return ($QueryType$) this;
+
+							case EntityOperator.NotEqual:
+								Entities = Entities.Where($PropertyExpression$ != value);
+								return ($QueryType$) this;
+
+							default:
+								throw new NotSupportedEnumException(@operator);
+						}
+					}
+										
+					public $QueryType$ With$PropertyName$Id(long? value = null,
+																					 				ArgumentEvaluationMode mode = ArgumentEvaluationMode.IgnoreNeutral,
+																									IntegralOperator @operator = IntegralOperator.Equal) {
+						switch (mode) {
+							case ArgumentEvaluationMode.IgnoreNeutral:
+								if (Neutrals.Is(value))
+									return ($QueryType$) this;
+								break;
+
+								case ArgumentEvaluationMode.Explicit:
+									break;
+
+								default:
+									throw new NotSupportedEnumException(mode);
+							}
+
+						switch (@operator) {
+							case IntegralOperator.Equal:
+								Entities = Entities.Where($PropertyExpression$.Id == value);
+								return ($QueryType$) this;
+
+							case IntegralOperator.NotEqual:
+								Entities = Entities.Where($PropertyExpression$.Id != value);
+								return ($QueryType$) this;
+
+							case IntegralOperator.GreaterThanOrEqual:
+								Entities = Entities.Where($PropertyExpression$.Id >= value);
+								return ($QueryType$) this;
+
+							case IntegralOperator.GreaterThan:
+								Entities = Entities.Where($PropertyExpression$.Id > value);
+								return ($QueryType$) this;
+
+							case IntegralOperator.LessThanOrEqual:
+								Entities = Entities.Where($PropertyExpression$.Id <= value);
+								return ($QueryType$) this;
+
+							case IntegralOperator.LessThan:
+								Entities = Entities.Where($PropertyExpression$.Id < value);
+								return ($QueryType$) this;
+
+							default:
+								throw new NotSupportedEnumException(@operator);
+						}
+					}
+				]]>
+			</Code>
+			<Declarations>
+				<Literal>
+					<ID>QueryType</ID>
+					<Default>TQuery</Default>
+				</Literal>
+				<Literal>
+					<ID>PropertyName</ID>
+					<Default>NavigationProperty</Default>
+				</Literal>
+				<Literal>
+					<ID>PropertyType</ID>
+					<Default>EntityType</Default>
+				</Literal>
+				<Literal>
+					<ID>PropertyExpression</ID>
+					<Default>e => e.NavigationProperty</Default>
+				</Literal>
+			</Declarations>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,9 @@
+﻿@using FaraMedia.Data.Schemas.Layout.Sections
+@using FaraMedia.Web.Framework.Routing
+@using FaraMedia.Web.Framework.UI
+@{
+    Layout = "~/Views/Shared/Masters/_GenresSectionLayout.cshtml";
+    Html.AddLocalizedTitleParts(GenresSectionConstants.FundamentalsController.List.Metadata.Title);
+    Html.AddBreadcrumbParts(Html.LocalizedRouteLink(GenresSectionConstants.FundamentalsController.List.Metadata.Title, GenresSectionConstants.FundamentalsController.List.RouteName, GenresSectionConstants.FundamentalsController.List.Defaults));
+}
+@RenderBody()

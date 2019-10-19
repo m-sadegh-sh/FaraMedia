@@ -1,0 +1,23 @@
+﻿@using FaraMedia.Data.Schemas.Layout
+@using FaraMedia.Web.Framework.Mvc.Extensions
+@using FaraMedia.Web.Framework.Mvc.UI
+@using FaraMedia.Core.Infrastructure.Extensions
+@model FaraMedia.FrontEnd.Administration.Models.Components.Editable.EditableMetadataComponentModel
+@{
+    var expressionTypeName = ViewData["expressionTypeName"].ToStringOrEmpty();
+}
+<div class="row">
+    <div class="span4"><h2>@Html.T(ComponentModelConstants.MetadataComponentModel.Metadata.Title)</h2>
+        <p>@Html.T(ComponentModelConstants.MetadataComponentModel.Metadata.Description)</p>
+    </div>
+    <div class="span12">
+        @Html.Custom().TextBoxFor(emcm => emcm.Title, new {
+            @class = "xlarge"
+        }, expressionTypeName)
+        @Html.Custom().TextBoxFor(emcm => emcm.Slug, new {
+            @class = "xlarge left"
+        }, expressionTypeName)
+        @Html.Custom().TextAreaFor(emcm => emcm.Keywords, 2, 40, null, expressionTypeName)
+        @Html.Custom().TextAreaFor(emcm => emcm.Description, 3, 60, null, expressionTypeName)
+    </div>
+</div>

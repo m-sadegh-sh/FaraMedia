@@ -1,0 +1,38 @@
+﻿@model Fara.Web.Models.Catalog.ProductsByTagModel
+@{
+    Layout = "~/Views/Shared/_MobileRoot.cshtml";
+
+    //title
+    Html.AddTitleParts(string.Format(T("PageTitle.ProductsByTag").Text, Model.TagName));
+}
+@using Fara.Core;
+@using Fara.Core.Infrastructure;
+@using Fara.Web;
+@using Fara.Web.Framework.UI;
+@using Fara.Web.Models.Catalog;
+@using Fara.Web.Extensions;
+
+<div class="producttag-page">
+
+    @*product list*@
+    @if (Model.Products.Count > 0)
+    {
+        <div class="product-list">
+            <ul data-role="listview" data-inset="true" data-filter="false" data-theme="c">
+                @foreach (var product in Model.Products)
+                {
+                    <li>
+                        @Html.Partial("_ProductBox", product)
+                    </li>
+                }
+            </ul>
+        </div>
+    }
+    
+    <div class="clear">
+    </div>
+    
+    <div class="pager">
+    @Html.Pager(Model.PagingFilteringContext).QueryParam("pagenumber")
+    </div>
+</div>

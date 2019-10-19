@@ -1,0 +1,8 @@
+﻿@using FaraMedia.Data.Schemas.Layout.Sections
+@using FaraMedia.Web.Framework.Routing
+@using FaraMedia.Web.Framework.UI
+@{
+    Layout = "~/Views/Shared/Masters/_SectionsLayout.cshtml";
+    Html.AddLocalizedTitleParts(ArtistsSectionConstants.Metadata.Title);
+    Html.AddBreadcrumbParts(Html.LocalizedRouteLink(ArtistsSectionConstants.Metadata.Title, ArtistsSectionConstants.RouteName));
+}

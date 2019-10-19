@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Impelement GuidOperator for specific entity property.</Title>
+			<Shortcut>GuidOp</Shortcut>
+			<Author>FaraSun</Author>
+		</Header>
+		<Snippet>
+			<Code Language="CSharp">
+				<![CDATA[					
+					public $QueryType$ With$PropertyName$(Guid? value = null,
+																							  ArgumentEvaluationMode mode = ArgumentEvaluationMode.IgnoreNeutral,
+																							  GuidOperator @operator = GuidOperator.Equal) {
+						switch (mode) {
+							case ArgumentEvaluationMode.IgnoreNeutral:
+								if (Neutrals.Is(value))
+									return ($QueryType$) this;
+								break;
+
+							case ArgumentEvaluationMode.Explicit:
+								break;
+
+							default:
+								throw new NotSupportedEnumException(mode);
+						}
+
+						switch (@operator) {
+							case GuidOperator.Equal:
+								Entities = Entities.Where($PropertyExpression$ == value);
+								return ($QueryType$) this;
+
+							case GuidOperator.NotEqual:
+								Entities = Entities.Where($PropertyExpression$ != value);
+								return ($QueryType$) this;
+
+							default:
+								throw new NotSupportedEnumException(@operator);
+						}
+					}
+				]]>
+			</Code>
+			<Declarations>
+				<Literal>
+					<ID>QueryType</ID>
+					<Default>TQuery</Default>
+				</Literal>
+				<Literal>
+					<ID>PropertyName</ID>
+					<Default>Guid</Default>
+				</Literal>
+				<Literal>
+					<ID>PropertyExpression</ID>
+					<Default>e => e.Guid</Default>
+				</Literal>
+			</Declarations>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

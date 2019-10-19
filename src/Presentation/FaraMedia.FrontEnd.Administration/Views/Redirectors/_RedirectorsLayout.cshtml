@@ -1,0 +1,9 @@
+﻿@using FaraMedia.Data.Schemas.Layout.Sections
+@using FaraMedia.Web.Framework.Routing
+@using FaraMedia.Web.Framework.UI
+@{
+    Layout = "~/Views/Shared/Masters/_StatisticsSectionLayout.cshtml";
+    Html.AddLocalizedTitleParts(StatisticsSectionConstants.RedirectorsController.List.Metadata.Title);
+    Html.AddBreadcrumbParts(Html.LocalizedRouteLink(StatisticsSectionConstants.RedirectorsController.List.Metadata.Title, StatisticsSectionConstants.RedirectorsController.List.RouteName, StatisticsSectionConstants.RedirectorsController.List.Defaults));
+}
+@RenderBody()

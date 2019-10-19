@@ -1,0 +1,48 @@
+﻿@using System.Web.Mvc.Html
+@using FaraMedia.Data.Schemas.Layout.Sections
+@using FaraMedia.Web.Framework.Mvc.Extensions
+@using FaraMedia.Web.Framework.Mvc.UI
+@using FaraMedia.Web.Framework.Routing
+@using FaraMedia.Web.Framework.UI
+@model FaraMedia.FrontEnd.Administration.Models.Configuration.EditableSitemapSettingsModel
+@{
+    Layout = "~/Views/Shared/Masters/_SettingsSectionLayout.cshtml";
+    Html.AddTitleParts(Html.T(SettingsSectionConstants.SitemapSettingsController.Save.Metadata.Title));
+    Html.AddBreadcrumbParts(Html.LocalizedRouteLink(SettingsSectionConstants.SitemapSettingsController.Save.Metadata.Title, SettingsSectionConstants.SitemapSettingsController.Save.RouteName));
+}
+<section>
+    <div class="page-header">
+        <h1>
+            @Html.T(SettingsSectionConstants.SitemapSettingsController.Save.Metadata.Title) 
+            <small>(@Html.LocalizedBackToLink(SettingsSectionConstants.Metadata.Title, SettingsSectionConstants.RouteName, null))</small>
+        </h1>
+    </div>
+    @Html.Custom().ValidationSummary(true)
+    @using (Html.BeginRouteForm(SettingsSectionConstants.SitemapSettingsController.Save.RouteName)) {
+        <div class="row">
+            <div class="span4">
+                <p>@Html.T(SettingsSectionConstants.SitemapSettingsController.Save.Metadata.Description)</p>
+            </div>
+            <div class="span12">
+                <fieldset>
+                    <legend>
+                        @Html.T(SettingsSectionConstants.SitemapSettingsController.Save.Metadata.Title)
+                    </legend>
+                    @Html.Custom().CheckBoxFor(essm => essm.Enabled)
+                    @Html.Custom().CheckBoxFor(essm => essm.IncludePages)
+                    @Html.Custom().CheckBoxFor(essm => essm.IncludeTags)
+                    @Html.Custom().CheckBoxFor(essm => essm.IncludePosts)
+                    @Html.Custom().CheckBoxFor(essm => essm.IncludeCategories)
+                    @Html.Custom().CheckBoxFor(essm => essm.IncludeNews)
+                    @Html.Custom().CheckBoxFor(essm => essm.IncludeGenres)
+                    @Html.Custom().CheckBoxFor(essm => essm.IncludePublishers)
+                    @Html.Custom().CheckBoxFor(essm => essm.IncludeArtists)
+                    @Html.Custom().CheckBoxFor(essm => essm.IncludeAlbums)
+                    @Html.Custom().CheckBoxFor(essm => essm.IncludeSingleTracks)
+                    @Html.Custom().CheckBoxFor(essm => essm.IncludePolls)
+                </fieldset>
+            </div>
+        </div>
+                @Html.Partial("_SaveActions")
+    }
+</section>

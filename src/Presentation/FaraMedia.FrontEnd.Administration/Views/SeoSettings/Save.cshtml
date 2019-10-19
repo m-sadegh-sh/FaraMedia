@@ -1,0 +1,50 @@
+﻿@using System.Web.Mvc.Html
+@using FaraMedia.Data.Schemas.Layout.Sections
+@using FaraMedia.Web.Framework.Mvc.Extensions
+@using FaraMedia.Web.Framework.Mvc.UI
+@using FaraMedia.Web.Framework.Routing
+@using FaraMedia.Web.Framework.UI
+@model FaraMedia.FrontEnd.Administration.Models.Configuration.EditableSeoSettingsModel
+@{
+    Layout = "~/Views/Shared/Masters/_SettingsSectionLayout.cshtml";
+    Html.AddTitleParts(Html.T(SettingsSectionConstants.SeoSettingsController.Save.Metadata.Title));
+    Html.AddBreadcrumbParts(Html.LocalizedRouteLink(SettingsSectionConstants.SeoSettingsController.Save.Metadata.Title, SettingsSectionConstants.SeoSettingsController.Save.RouteName));
+}
+<section>
+    <div class="page-header">
+        <h1>
+            @Html.T(SettingsSectionConstants.SeoSettingsController.Save.Metadata.Title) 
+            <small>(@Html.LocalizedBackToLink(SettingsSectionConstants.Metadata.Title, SettingsSectionConstants.RouteName, null))</small>
+        </h1>
+    </div>
+    @Html.Custom().ValidationSummary(true)
+    @using (Html.BeginRouteForm(SettingsSectionConstants.SeoSettingsController.Save.RouteName)) {
+        <div class="row">
+            <div class="span4">
+                <p>@Html.T(SettingsSectionConstants.SeoSettingsController.Save.Metadata.Description)</p>
+            </div>
+            <div class="span12">
+                <fieldset>
+                    <legend>
+                        @Html.T(SettingsSectionConstants.SeoSettingsController.Save.Metadata.Title)
+                    </legend>
+                    @Html.Custom().CheckBoxFor(essm => essm.ConvertNonWesternChars)
+                    @Html.Custom().CheckBoxFor(essm => essm.AllowUnicodeCharsInUrls)
+                    @Html.Custom().CheckBoxFor(essm => essm.CanonicalUrlsEnabled)
+                    @Html.Custom().TextBoxFor(essm => essm.TitleSeparator, new {
+                        @class = "mini"
+                    })
+                    @Html.Custom().TextBoxFor(essm => essm.DefaultTitle, new {
+                        @class = "large"
+                    })
+                    @Html.Custom().TextAreaFor(essm => essm.DefaultMetaKeywords, 2, 40)
+                    @Html.Custom().TextAreaFor(essm => essm.DefaultMetaDescription, 3, 60)
+                    @Html.Custom().TextBoxFor(essm => essm.BreadcrumbSeparator, new {
+                        @class = "mini"
+                    })
+                </fieldset>
+            </div>
+        </div>
+                @Html.Partial("_SaveActions")
+    }
+</section>

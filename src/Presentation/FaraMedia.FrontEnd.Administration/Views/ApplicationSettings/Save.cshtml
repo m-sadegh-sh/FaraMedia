@@ -1,0 +1,58 @@
+﻿@using System.Web.Mvc.Html
+@using FaraMedia.Data.Schemas.Layout.Sections
+@using FaraMedia.Web.Framework.Mvc.Extensions
+@using FaraMedia.Web.Framework.Mvc.UI
+@using FaraMedia.Web.Framework.Routing
+@using FaraMedia.Web.Framework.UI
+@model FaraMedia.FrontEnd.Administration.Models.Configuration.EditableApplicationSettingsModel
+@{
+    Layout = "~/Views/Shared/Masters/_SettingsSectionLayout.cshtml";
+    Html.AddTitleParts(Html.T(SettingsSectionConstants.ApplicationSettingsController.Save.Metadata.Title));
+    Html.AddBreadcrumbParts(Html.LocalizedRouteLink(SettingsSectionConstants.ApplicationSettingsController.Save.Metadata.Title, SettingsSectionConstants.ApplicationSettingsController.Save.RouteName));
+}
+<section>
+    <div class="page-header">
+        <h1>
+            @Html.T(SettingsSectionConstants.ApplicationSettingsController.Save.Metadata.Title) 
+            <small>(@Html.LocalizedBackToLink(SettingsSectionConstants.Metadata.Title, SettingsSectionConstants.RouteName, null))</small>
+        </h1>
+    </div>
+    @Html.Custom().ValidationSummary(true)
+    @using (Html.BeginRouteForm(SettingsSectionConstants.ApplicationSettingsController.Save.RouteName)) {
+        <div class="row">
+            <div class="span4">
+                <p>@Html.T(SettingsSectionConstants.ApplicationSettingsController.Save.Metadata.Description)</p>
+            </div>
+            <div class="span12">
+                <fieldset>
+                    <legend>
+                        @Html.T(SettingsSectionConstants.ApplicationSettingsController.Save.Metadata.Title)
+                    </legend>
+                    @Html.Custom().CheckBoxFor(easm => easm.IsClosed)
+                    @Html.Custom().CheckBoxFor(easm => easm.IsClosedAllowForAdmins)
+                    @Html.Custom().CheckBoxFor(easm => easm.AllowUserToSelectTheme)
+                    @Html.Custom().CheckBoxFor(easm => easm.MobileDevicesSupported)
+                    @Html.Custom().CheckBoxFor(easm => easm.DisplayMiniProfilerInPublicArea)
+                    @Html.Custom().CheckBoxFor(easm => easm.NotifyAboutNewComments)
+                    @Html.Custom().CheckBoxFor(easm => easm.ShowHeaderRssUrl)
+                    @Html.Custom().TextBoxFor(easm => easm.DefaultPageSize, new {
+                        @class = "mini left"
+                    })
+                    @Html.Custom().TextBoxFor(easm => easm.Name, new {
+                        @class = "xxlarge"
+                    })
+                    @Html.Custom().TextBoxFor(easm => easm.Url, new {
+                        @class = "xlarge left"
+                    })
+                    @Html.Custom().TextBoxFor(easm => easm.DefaultTheme, new {
+                        @class = "medium left"
+                    })
+                    @Html.Custom().TextBoxFor(easm => easm.DefaultThemeForMobileDevices, new {
+                        @class = "medium left"
+                    })
+                </fieldset>
+            </div>
+        </div>
+            @Html.Partial("_SaveActions")
+    }
+</section>

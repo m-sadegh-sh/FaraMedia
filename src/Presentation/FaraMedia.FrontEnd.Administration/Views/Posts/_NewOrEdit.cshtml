@@ -1,0 +1,10 @@
+﻿@using FaraMedia.Web.Framework.Mvc.Extensions
+@using FaraMedia.Web.Framework.Mvc.UI
+@using FaraMedia.Data.Schemas.ContentManagement
+@model FaraMedia.FrontEnd.Administration.Models.Blogs.Editable.EditablePostModel
+@Html.Custom().CheckBoxFor(epm => epm.AllowComments)
+@Html.Custom().TextBoxFor(epm => epm.Title, new {
+    @class = "xxlarge"
+})
+@Html.Custom().TextAreaFor(epm => epm.Body, 10, 70)
+@Html.Custom().ListBoxFor(epm => epm.Tags, Model.AvailableTags, Html.T(PostConstants.Fields.Tags.Hints))

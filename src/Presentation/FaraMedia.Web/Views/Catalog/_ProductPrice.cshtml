@@ -1,0 +1,7 @@
+﻿@model Fara.Web.Models.Catalog.ProductModel.ProductPriceModel
+@if (!string.IsNullOrEmpty(Model.OldPrice))
+{
+    <span class="oldproductPrice">@Model.OldPrice</span>
+    <br />
+}
+<span class="productPrice">@Model.Price</span> 

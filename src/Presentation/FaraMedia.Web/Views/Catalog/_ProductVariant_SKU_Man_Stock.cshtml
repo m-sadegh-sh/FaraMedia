@@ -1,0 +1,39 @@
+﻿@model Fara.Web.Models.Catalog.ProductModel.ProductVariantModel
+@*SKU*@
+@if (!string.IsNullOrWhiteSpace(Model.Sku) && Model.ShowSku)
+{
+    <div class="sku">
+        @T("Products.Sku")<text>:</text>
+        @Model.Sku
+    </div>
+    <div class="clear">
+    </div>
+}
+@*Publisher part number*@
+@if (!string.IsNullOrWhiteSpace(Model.PublisherPartNumber) && Model.ShowPublisherPartNumber)
+{
+    <div class="publisherpartnumber">
+        @T("Products.PublisherPartNumber")<text>:</text>
+        @Model.PublisherPartNumber
+    </div>
+    <div class="clear">
+    </div>
+}
+@*GTIN*@
+@if (!string.IsNullOrWhiteSpace(Model.Gtin) && Model.ShowGtin)
+{
+    <div class="gtin">
+        @T("Products.GTIN")<text>:</text>
+        @Model.Gtin
+    </div>
+    <div class="clear">
+    </div>
+}
+@*Stock availability*@
+@if (!string.IsNullOrWhiteSpace(Model.StockAvailablity))
+{
+    <div class="stock">
+        @T("Products.Availability")<text>:</text>
+        @Model.StockAvailablity
+    </div>
+}

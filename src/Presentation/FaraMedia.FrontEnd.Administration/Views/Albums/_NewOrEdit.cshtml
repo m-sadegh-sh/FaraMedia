@@ -1,0 +1,11 @@
+﻿@using FaraMedia.Data.Schemas.Fundamentals
+@using FaraMedia.Web.Framework.Mvc.Extensions
+@using FaraMedia.Web.Framework.Mvc.UI
+@model FaraMedia.FrontEnd.Administration.Models.Fundamentals.Editable.EditableAlbumModel
+@Html.Custom().CheckBoxFor(eam => eam.AllowComments)
+@Html.Custom().DatePickerFor(eam => eam.ReleaseDateDay, eam => eam.ReleaseDateMonth, eam => eam.ReleaseDateYear, selectedDay: Model.ReleaseDateDay, selectedMonth: Model.ReleaseDateMonth, selectedYear: Model.ReleaseDateYear, beginYearOffset: - 10, endYearOffset: 10)
+@Html.Custom().TextBoxFor(eam => eam.Title, new {
+    @class = "xxlarge"
+})
+@Html.Custom().TextAreaFor(eam => eam.Description, 10, 70)
+@Html.Custom().DropDownListFor(eam => eam.PublisherId, Model.AvailablePublishers, Html.T(AlbumConstants.Fields.Publisher.Hints))

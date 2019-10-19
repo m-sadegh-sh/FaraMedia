@@ -1,0 +1,19 @@
+﻿@using System.Web.Mvc.Html
+@using FaraMedia.Core.Routing
+@using FaraMedia.FrontEnd.Administration.Schema
+@{
+    Layout = "_Layout.cshtml";
+}
+<div class="container-fluid">
+    @if (IsSectionDefined(KnownLayoutParts.AsideMenu)) {
+        RenderSection(KnownLayoutParts.AsideMenu, true);
+    } else {
+        Html.RenderAction("AsideNavigation", "Layout", RouteParameter.Add("SectionName", (string) ViewBag.SectionControllerName));
+    }
+    <div class="content">
+        @Html.Partial("_Breadcrumb")
+        @Html.Partial("_Notifications")
+        @RenderBody()
+    </div>
+    @Html.Partial("_Footer")
+</div>

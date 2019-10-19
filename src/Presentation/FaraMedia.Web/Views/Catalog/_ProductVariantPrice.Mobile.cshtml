@@ -1,0 +1,55 @@
+﻿@model Fara.Web.Models.Catalog.ProductModel.ProductVariantModel.ProductVariantPriceModel
+@using Fara.Web.Models.Catalog;
+@using Fara.Core.Domain.Catalog;
+@using Fara.Core.Infrastructure;
+@using Fara.Core;
+@using System.Text;
+@using System.Globalization;
+@using Fara.Web.Framework;
+@using Fara.Services.Customers;
+@using System.Text.RegularExpressions;
+<div class="price">
+    @if (Model.CustomerEntersPrice)
+    {
+        /*display nothing*/
+    }
+    else if (Model.CallForPrice)
+    {
+        <span class="productPrice">@T("Products.CallForPrice")</span>
+    }
+    else
+    {
+        if (!string.IsNullOrWhiteSpace(Model.OldPrice))
+        {
+        @T("Products.Price.OldPrice")<text>:</text>
+        <span class="oldProductPrice">@Model.OldPrice</span>
+        <br />
+        }
+        if (!string.IsNullOrWhiteSpace(Model.OldPrice) ||
+            !string.IsNullOrWhiteSpace(Model.PriceWithDiscount))
+        {
+        @T("Products.Price")<text>:</text>
+        }
+        
+        
+        <span 
+        @if (string.IsNullOrWhiteSpace(Model.PriceWithDiscount))
+        {
+            <text>class="productPrice"</text>
+        }
+        >
+            @Html.Raw(Model.Price)
+        </span>
+        
+        
+        
+        if (!string.IsNullOrWhiteSpace(Model.PriceWithDiscount))
+        {
+        <br />
+        @T("Products.Price.WithDiscount")<text>:</text>
+        <span class="productPrice">
+            @Html.Raw(Model.PriceWithDiscount)
+        </span>
+        }
+    }
+</div>

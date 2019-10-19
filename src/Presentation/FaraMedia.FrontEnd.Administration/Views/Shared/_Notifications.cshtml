@@ -1,0 +1,38 @@
+﻿@using FaraMedia.Web.Framework.UI
+@{
+    var successMessages = new List<string>();
+    if (TempData[string.Format("fara.notifications.{0}", NotifyType.Success)] != null) {
+        successMessages.AddRange((IList<string>) TempData[string.Format("fara.notifications.{0}", NotifyType.Success)]);
+    }
+    if (ViewData[string.Format("fara.notifications.{0}", NotifyType.Success)] != null) {
+        successMessages.AddRange((IList<string>) ViewData[string.Format("fara.notifications.{0}", NotifyType.Success)]);
+    }
+
+    var errorMessages = new List<string>();
+    if (TempData[string.Format("fara.notifications.{0}", NotifyType.Error)] != null) {
+        errorMessages.AddRange((IList<string>) TempData[string.Format("fara.notifications.{0}", NotifyType.Error)]);
+    }
+    if (ViewData[string.Format("fara.notifications.{0}", NotifyType.Error)] != null) {
+        errorMessages.AddRange((IList<string>) ViewData[string.Format("fara.notifications.{0}", NotifyType.Error)]);
+    }
+}
+@if (successMessages.Any()) {
+    foreach (var successMessage in successMessages) {
+        <div class="alert-message success">
+            <a class="close" href="#" trap="true">×</a>
+            <p>
+                @successMessage
+            </p>
+        </div>
+    }
+}
+@if (errorMessages.Any()) {
+    foreach (var errorMessage in errorMessages) {
+        <div class="alert-message error">
+            <a class="close" href="#" trap="true">×</a>
+            <p>
+                @errorMessage
+            </p>
+        </div>
+    }
+}

@@ -1,0 +1,11 @@
+﻿@using FaraMedia.Web.Framework.Mvc.UI
+@model FaraMedia.FrontEnd.Administration.Models.FileManagement.Editable.EditableDownloadModel
+@Html.Custom().CheckBoxFor(edm => edm.IsNew)
+@Html.Custom().CheckBoxFor(edm => edm.UseDownloadUrl)
+@Html.Custom().TextBoxFor(edm => edm.ContentType)
+@Html.Custom().TextBoxFor(edm => edm.FileName, new {
+    @class = "xlarge"
+})
+@Html.Custom().TextBoxFor(edm => edm.Extension)
+@Html.Custom().TextBoxFor(edm => edm.DownloadBinary)
+@Html.Custom().TextBoxFor(edm => edm.DownloadUrl)

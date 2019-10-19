@@ -1,0 +1,431 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6BDA8332-939F-45B7-A25E-7A797260AE59}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FaraMedia.Core</RootNamespace>
+    <AssemblyName>FaraMedia.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=2.6.3.862, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Autofac.2.6.3.862\lib\NET40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Configuration, Version=2.6.3.862, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Autofac.2.6.3.862\lib\NET40\Autofac.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc, Version=2.6.2.859, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Autofac.Mvc4.2.6.2.859\lib\NET40\Autofac.Integration.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="CuttingEdge.Conditions">
+      <HintPath>..\..\packages\CuttingEdge.Conditions.1.2.0.0\lib\NET35\CuttingEdge.Conditions.dll</HintPath>
+    </Reference>
+    <Reference Include="Dnum">
+      <HintPath>..\..\packages\Dnum.1.1.4252.35574\lib\net35\Dnum.dll</HintPath>
+    </Reference>
+    <Reference Include="FarsiLibrary.Utils">
+      <HintPath>..\..\Dependencies\FarsiLibrary.Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\NHibernate.3.3.2.4000\lib\Net35\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.Razor.2.0.20715.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="UniversalTypeConverter">
+      <HintPath>..\..\packages\UniversalTypeConverter.1.0.2\lib\net40\UniversalTypeConverter.dll</HintPath>
+    </Reference>
+    <Reference Include="Utilities">
+      <HintPath>..\..\packages\CraigsUtilityLibrary.3.2.0033\lib\net40\Utilities.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Caching\CacheExtensions.fixed.cs" />
+    <Compile Include="Caching\ICache.fixed.cs" />
+    <Compile Include="Domain\Billing\ItemType.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Billing\Order.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Billing\OrderExtensions.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Billing\OrderLine.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Billing\OrderNote.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Billing\OrderStatus.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Billing\TransactionRequest.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Billing\TransactionRequestStatus.fixed.cs" />
+    <Compile Include="Domain\Billing\TransactionResponse.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Billing\TransactionResponseResult.fixed.cs" />
+    <Compile Include="Domain\Components\HistoryComponent.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Components\MetadataComponent.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Configuration\BillingSettings.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Configuration\DisplayScreenNameFormat.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Configuration\FileManagementSettings.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Configuration\PasswordHashingAlgorithm.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Configuration\ISettings.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Configuration\SecuritySettings.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Configuration\Setting.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Configuration\SystemSettings.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Configuration\TaxPayType.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Configuration\UserRegistrationType.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\ContentManagement\Blog.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\ContentManagement\Category.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\ContentManagement\Group.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\ContentManagement\News.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\ContentManagement\Page.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\ContentManagement\Poll.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\ContentManagement\PollChoice.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\ContentManagement\PollChoiceItem.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\ContentManagement\PollVotingRecord.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\ContentManagement\Post.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\ContentManagement\Tag.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\EntityBase.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\FileManagement\Download.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\FileManagement\Picture.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Fundamentals\Album.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Fundamentals\Artist.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Fundamentals\Genre.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Fundamentals\Photo.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Fundamentals\PhotoAlbum.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Fundamentals\Publisher.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Fundamentals\Track.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\IComponent.fixed.cs" />
+    <Compile Include="Domain\IEntity.fixed.cs" />
+    <Compile Include="Domain\IHasCreationHistory.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\IHasDeletionHistory.fixed.cs" />
+    <Compile Include="Domain\IHasMetadata.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\IHasModificationHistory.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\IOwnable.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\IRoleOwnable.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\ISecurable.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Misc\Redirector.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Misc\Ticket.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Misc\TicketDepartment.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Misc\TicketResponse.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Misc\TicketStatus.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Misc\ToDo.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Misc\ToDoStatus.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\OwnableBase.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Priority.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Security\BannedIp.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Security\BlockReason.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Security\DefaultPermissionRecord.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Security\FriendRequest.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Security\PasswordStoringFormat.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Security\PermissionRecord.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Security\Role.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Security\User.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Shared\Comment.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Shared\EntityAttribute.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Shared\Like.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\AttributeBase.fixed.cs" />
+    <Compile Include="Domain\Shared\Share.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Systematic\Activity.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Systematic\ActivityType.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Systematic\EmailAccount.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Systematic\Language.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Systematic\Log.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Systematic\LogLevel.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Systematic\MessageTemplate.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Systematic\NewsletterSubscription.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Systematic\QueuedEmail.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Systematic\ResourceKey.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Systematic\ResourceValue.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Systematic\ScheduleTask.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\UIElementBase.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\UserContentBase.fixed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HttpContextState.fixed.cs" />
+    <Compile Include="CommonHelper.fixed.cs" />
+    <Compile Include="Infrastructure\DependencyManagement\ComponentLifeStyle.fixed.cs" />
+    <Compile Include="Infrastructure\DependencyManagement\ContainerConfigurer.fixed.cs" />
+    <Compile Include="Infrastructure\DependencyManagement\ContainerManager.fixed.cs" />
+    <Compile Include="Infrastructure\DependencyManagement\ContainerManagerExtensions.fixed.cs" />
+    <Compile Include="Infrastructure\DependencyManagement\IDependencyRegistrar.fixed.cs" />
+    <Compile Include="Operators\ArgumentEvaluationMode.fixed.cs" />
+    <Compile Include="Operators\BoolOperator.fixed.cs" />
+    <Compile Include="NotSupportedEnumException.fixed.cs" />
+    <Compile Include="Operators\CollectionDirection.fixed.cs" />
+    <Compile Include="Operators\CollectionOperator.fixed.cs" />
+    <Compile Include="Operators\EntityOperator.fixed.cs" />
+    <Compile Include="Operators\GuidOperator.fixed.cs" />
+    <Compile Include="Operators\EnumOperator.fixed.cs" />
+    <Compile Include="Operators\IntegralOperator.fixed.cs" />
+    <Compile Include="Operators\RangeOperator.fixed.cs" />
+    <Compile Include="Operators\StringDirection.fixed.cs" />
+    <Compile Include="Operators\StringOperator.fixed.cs" />
+    <Compile Include="Configuration\ConfigBase.fixed.cs" />
+    <Compile Include="Configuration\BootstrapConfig.fixed.cs" />
+    <Compile Include="Configuration\FaraConfig.fixed.cs" />
+    <Compile Include="Data\DbConstants.fixed.cs" />
+    <Compile Include="Data\IActiveSessionManager.fixed.cs" />
+    <Compile Include="ISimpleState.fixed.cs" />
+    <Compile Include="Data\ISessionProvider.fixed.cs" />
+    <Compile Include="Data\IUnitOfWork.fixed.cs" />
+    <Compile Include="DependencyRegistrar.fixed.cs" />
+    <Compile Include="DisposableBase.fixed.cs" />
+    <Compile Include="FaraException.fixed.cs" />
+    <Compile Include="HttpExtensions.fixed.cs" />
+    <Compile Include="Infrastructure\Extensions\TypeExtensions.fixed.cs" />
+    <Compile Include="Infrastructure\TypeFinders\AppDomainTypeFinder.fixed.cs" />
+    <Compile Include="Infrastructure\TypeFinders\AttributedAssembly.fixed.cs" />
+    <Compile Include="Infrastructure\EngineContext.fixed.cs" />
+    <Compile Include="Infrastructure\Extensions\DateTimeExtensions.fixed.cs" />
+    <Compile Include="Infrastructure\Extensions\DictionaryExtensions.fixed.cs" />
+    <Compile Include="Infrastructure\Extensions\EnumerableExtensions.fixed.cs" />
+    <Compile Include="Infrastructure\Extensions\EnumExtensions.fixed.cs" />
+    <Compile Include="Infrastructure\Extensions\GenericExtensions.fixed.cs" />
+    <Compile Include="Infrastructure\Extensions\GuidExtension.fixed.cs" />
+    <Compile Include="Infrastructure\Extensions\ListExtensions.fixed.cs" />
+    <Compile Include="Infrastructure\Extensions\NameValueCollectionExtensions.fixed.cs" />
+    <Compile Include="Infrastructure\Extensions\StringExtensions.fixed.cs" />
+    <Compile Include="Infrastructure\FaraEngine.fixed.cs" />
+    <Compile Include="Infrastructure\IEngine.fixed.cs" />
+    <Compile Include="Infrastructure\IStartupTask.fixed.cs" />
+    <Compile Include="Infrastructure\TypeFinders\ITypeFinder.fixed.cs" />
+    <Compile Include="Infrastructure\TypeFinders\WebAppTypeFinder.fixed.cs" />
+    <Compile Include="IWebHelper.fixed.cs" />
+    <Compile Include="IWorkContext.fixed.cs" />
+    <Compile Include="Routing\RouteParameter.fixed.cs" />
+    <Compile Include="Routing\RouteValueDictionaryExtensions.fixed.cs" />
+    <Compile Include="Neutrals.fixed.cs" />
+    <Compile Include="DbConfigurationState.fixed.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sanitization\Sanitizer.fixed.cs" />
+    <Compile Include="Sanitization\SanitizeConfig.fixed.cs" />
+    <Compile Include="Patterns\Singleton.fixed.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FaraMedia.VersionInfo\FaraMedia.VersionInfo.csproj">
+      <Project>{47AB8967-8D96-4FE3-9563-FFE13FFC798E}</Project>
+      <Name>FaraMedia.VersionInfo</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+</Project>
